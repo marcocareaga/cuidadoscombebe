@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,19 +18,18 @@
       --cream:#fff8f0;
       --navy:#1a237e;
       --navy-lt:#e8eaf6;
-      --sage:#e8f5e9;
       --gold:#ffb300;
       --dark:#263238;
       --text:#37474f;
       --text-lt:#78909c;
       --white:#fff;
-      --off:#fafafa;
-      --shadow:0 4px 20px rgba(0,0,0,.08);
-      --shadow-lg:0 12px 40px rgba(0,0,0,.12);
+      --off:#f5f5f5;
+      --shadow:0 4px 24px rgba(0,0,0,.08);
+      --shadow-lg:0 12px 48px rgba(0,0,0,.15);
       --r:16px;
-      --max:960px;
+      --max:1000px;
       --font:'Nunito',sans-serif;
-      --font-display:'Playfair Display',serif;
+      --font-dp:'Playfair Display',serif;
     }
     html{scroll-behavior:smooth}
     body{
@@ -40,740 +38,397 @@
       background:var(--white);
       line-height:1.7;
       overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
     }
     img{max-width:100%;height:auto;display:block}
     a{text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
     @media(max-width:600px){.container{padding:0 16px}}
 
-    /* ── HEADER / TOP BAR ── */
     .top-bar{
-      background:var(--navy);
-      color:var(--white);
-      text-align:center;
-      padding:8px 16px;
-      font-size:.8rem;
-      font-weight:700;
-      letter-spacing:.05em;
+      background:var(--navy);color:var(--white);text-align:center;
+      padding:8px 16px;font-size:.8rem;font-weight:700;letter-spacing:.05em;
       text-transform:uppercase;
     }
     .top-bar span{color:var(--gold)}
 
     /* ── HERO ── */
     .hero{
-      background:linear-gradient(160deg, #1a237e 0%, #283593 30%, #e91e63 85%, #c2185b 100%);
-      padding:40px 0 80px;
       position:relative;
+      min-height:92vh;
+      display:flex;align-items:center;
       overflow:hidden;
     }
-    .hero::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='15' fill='rgba(255,255,255,.04)'/%3E%3Ccircle cx='170' cy='50' r='25' fill='rgba(255,255,255,.03)'/%3E%3Ccircle cx='100' cy='180' r='40' fill='rgba(255,255,255,.03)'/%3E%3Ccircle cx='190' cy='160' r='10' fill='rgba(255,255,255,.05)'/%3E%3Ccircle cx='10' cy='140' r='20' fill='rgba(255,255,255,.02)'/%3E%3C/svg%3E") repeat;
-      pointer-events:none;
+    .hero-bg{
+      position:absolute;inset:0;
+      background:url('https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      filter:brightness(.35);
+      transform:scale(1.05);
     }
-    .hero .container{position:relative;z-index:1}
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(135deg, rgba(26,35,126,.7), rgba(233,30,99,.45));
+    }
+    .hero .container{position:relative;z-index:2;width:100%}
     .hero-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:12px;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
       margin-bottom:48px;
     }
     .logo-text{
-      font-family:var(--font-display);
-      font-weight:900;
-      font-size:1.5rem;
-      color:var(--white);
-      line-height:1.1;
+      font-family:var(--font-dp);font-weight:900;font-size:1.6rem;color:var(--white);line-height:1.1;
     }
     .logo-text span{color:var(--gold)}
-    .logo-sub{
-      font-size:.75rem;
-      color:rgba(255,255,255,.7);
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
+    .logo-sub{font-size:.7rem;color:rgba(255,255,255,.6);letter-spacing:2px;text-transform:uppercase}
     .hero-badge{
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(8px);
-      border:1px solid rgba(255,255,255,.2);
-      border-radius:50px;
-      padding:8px 20px;
-      font-size:.8rem;
-      font-weight:700;
-      color:var(--white);
+      background:rgba(255,255,255,.12);backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.2);border-radius:50px;
+      padding:8px 20px;font-size:.8rem;font-weight:700;color:var(--white);
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
-      align-items:center;
-    }
-    @media(max-width:768px){
-      .hero-grid{grid-template-columns:1fr;gap:32px}
-      .hero-grid .hero-visual{order:-1}
-    }
+    .hero-content{max-width:620px;padding:60px 0}
     .hero h1{
-      font-family:var(--font-display);
-      font-size:clamp(1.8rem,5vw,2.8rem);
-      line-height:1.2;
-      color:var(--white);
-      margin-bottom:16px;
+      font-family:var(--font-dp);
+      font-size:clamp(2rem,5.5vw,3.2rem);
+      line-height:1.15;color:var(--white);margin-bottom:20px;
     }
     .hero h1 span{color:var(--gold)}
     .hero-sub{
-      font-size:1.05rem;
-      color:rgba(255,255,255,.85);
-      margin-bottom:24px;
-      max-width:480px;
+      font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:28px;max-width:520px;
     }
     .hero-stats{
-      display:flex;
-      gap:24px;
-      flex-wrap:wrap;
-      margin-bottom:28px;
+      display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;
     }
     .hero-stat{
-      text-align:center;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:12px;
-      padding:12px 20px;
-      min-width:100px;
-      backdrop-filter:blur(4px);
+      text-align:center;background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);border-radius:12px;
+      padding:12px 20px;min-width:100px;backdrop-filter:blur(4px);
     }
-    .hero-stat .num{
-      font-size:1.4rem;
-      font-weight:900;
-      color:var(--gold);
-      display:block;
-    }
-    .hero-stat .label{
-      font-size:.75rem;
-      color:rgba(255,255,255,.75);
-      text-transform:uppercase;
-      letter-spacing:.05em;
-    }
-    .hero-img-wrap{
-      border-radius:var(--r);
-      overflow:hidden;
-      box-shadow:var(--shadow-lg);
-      position:relative;
-    }
-    .hero-img-wrap img{
-      width:100%;
-      height:400px;
-      object-fit:cover;
-    }
+    .hero-stat .num{font-size:1.4rem;font-weight:900;color:var(--gold);display:block}
+    .hero-stat .label{font-size:.7rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.05em}
     @media(max-width:768px){
-      .hero-img-wrap img{height:280px}
-    }
-    .hero-img-badge{
-      position:absolute;
-      bottom:16px;
-      left:16px;
-      background:rgba(233,30,99,.92);
-      backdrop-filter:blur(4px);
-      border-radius:50px;
-      padding:8px 18px;
-      font-size:.8rem;
-      font-weight:800;
-      color:var(--white);
+      .hero{min-height:auto;padding:40px 0 60px}
+      .hero-bg{filter:brightness(.25)}
+      .hero-content{padding:20px 0}
     }
 
-    /* ── VIDEO SECTION ── */
-    .video-section{
-      background:var(--cream);
-      padding:60px 0;
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      font-family:var(--font);font-weight:900;font-size:1.05rem;
+      letter-spacing:.02em;color:var(--white);
+      background:linear-gradient(135deg, var(--gold), #ff8f00);
+      padding:16px 40px;border-radius:50px;
+      box-shadow:0 6px 24px rgba(255,179,0,.35);
+      transition:transform .2s,box-shadow .2s;
+      border:none;cursor:pointer;text-decoration:none;
     }
-    .video-section .container{max-width:720px;text-align:center}
-    .video-section h2{
-      font-family:var(--font-display);
-      font-size:clamp(1.3rem,3vw,1.8rem);
-      color:var(--navy);
-      margin-bottom:8px;
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(255,179,0,.5)}
+
+    /* ── VIDEO ── */
+    .section-video{background:var(--cream);padding:64px 0}
+    .section-video .container{max-width:720px;text-align:center}
+    .section-video h2{
+      font-family:var(--font-dp);font-size:clamp(1.3rem,3vw,1.8rem);
+      color:var(--navy);margin-bottom:8px;
     }
-    .video-section .sub{color:var(--text-lt);margin-bottom:24px;font-size:.95rem}
+    .section-video .sub{color:var(--text-lt);margin-bottom:24px;font-size:.95rem}
     .video-wrap{
-      border-radius:var(--r);
-      overflow:hidden;
-      box-shadow:var(--shadow-lg);
-      position:relative;
-      background:#000;
-      aspect-ratio:16/9;
-      width:100%;
+      border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg);
+      position:relative;background:#000;aspect-ratio:16/9;width:100%;
     }
     .video-wrap iframe{width:100%;height:100%;position:absolute;inset:0;border:none}
 
-    /* ── PAIN / PROBLEM SECTION ── */
-    .section-pain{
-      background:var(--white);
-      padding:72px 0;
-    }
-    .pain-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
-      align-items:center;
-    }
-    @media(max-width:768px){.pain-grid{grid-template-columns:1fr}}
-    .pain-img-wrap{
-      border-radius:var(--r);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      position:relative;
-    }
-    .pain-img-wrap img{
-      width:100%;
-      height:380px;
-      object-fit:cover;
-    }
-    @media(max-width:768px){.pain-img-wrap img{height:260px}}
-    .pain-content{}
+    /* ── SHARED ── */
+    .section{padding:72px 0}
+    @media(max-width:768px){.section{padding:48px 0}}
     .section-label{
-      display:inline-block;
-      background:var(--rose);
-      color:var(--white);
-      font-weight:800;
-      font-size:.75rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      border-radius:50px;
-      padding:4px 16px;
-      margin-bottom:16px;
+      display:inline-block;background:var(--rose);color:var(--white);
+      font-weight:800;font-size:.75rem;letter-spacing:.08em;
+      text-transform:uppercase;border-radius:50px;padding:4px 16px;margin-bottom:16px;
     }
     .section-title{
-      font-family:var(--font-display);
+      font-family:var(--font-dp);
       font-size:clamp(1.4rem,3.5vw,2rem);
-      line-height:1.25;
-      color:var(--navy);
-      margin-bottom:16px;
+      line-height:1.25;color:var(--navy);margin-bottom:16px;
     }
     .section-title .rose{color:var(--rose)}
+
+    .grid-2{
+      display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;
+    }
+    @media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+
+    .img-card{
+      border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);
+      aspect-ratio:4/3;position:relative;
+    }
+    .img-card img{
+      width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+    }
+    .text-col{display:flex;flex-direction:column;justify-content:center}
+
+    /* ── PAIN ── */
+    .section-pain{background:var(--white)}
     .pain-list{list-style:none}
     .pain-list li{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      padding:12px 0;
-      border-bottom:1px solid #f0f0f0;
-      font-weight:600;
-      font-size:.95rem;
+      display:flex;gap:14px;align-items:flex-start;
+      padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:600;font-size:.95rem;
     }
     .pain-list li:last-child{border-bottom:none}
-    .pain-icon{
-      flex-shrink:0;
-      width:28px;height:28px;
-      background:var(--rose-lt);
-      border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      margin-top:2px;
-      font-size:14px;
+    .pain-ico{
+      flex-shrink:0;width:28px;height:28px;background:var(--rose-lt);
+      border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;font-size:14px;
     }
 
     /* ── CTA BANNER ── */
     .cta-banner{
       background:linear-gradient(135deg, var(--rose), var(--rose-dk));
-      text-align:center;
-      padding:40px 24px;
+      text-align:center;padding:40px 24px;
     }
-    .cta-banner .price{
-      font-size:2rem;
-      font-weight:900;
-      color:var(--white);
-    }
-    .cta-banner .price del{
-      font-size:1.2rem;
-      color:rgba(255,255,255,.5);
-      font-weight:600;
-    }
+    .cta-banner .price{font-size:2rem;font-weight:900;color:var(--white)}
+    .cta-banner .price del{font-size:1.2rem;color:rgba(255,255,255,.4);font-weight:600}
     .cta-banner p{color:rgba(255,255,255,.9);margin-bottom:12px}
-    .cta-banner .small{font-size:.85rem;opacity:.8}
+    .cta-banner .small{font-size:.85rem;opacity:.75}
+    .cta-banner .btn{margin-top:20px}
 
-    /* ── BUTTONS ── */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-family:var(--font);
-      font-weight:900;
-      font-size:1.05rem;
-      letter-spacing:.02em;
-      color:var(--white);
-      background:linear-gradient(135deg, var(--gold), #ff8f00);
-      padding:16px 40px;
-      border-radius:50px;
-      box-shadow:0 6px 24px rgba(255,179,0,.4);
-      transition:transform .2s,box-shadow .2s;
-      border:none;
-      cursor:pointer;
-      text-decoration:none;
-    }
-    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(255,179,0,.5)}
-    .btn-rose{
-      background:linear-gradient(135deg, var(--rose), var(--rose-dk));
-      box-shadow:0 6px 24px rgba(233,30,99,.4);
-    }
-    .btn-rose:hover{box-shadow:0 10px 32px rgba(233,30,99,.5)}
-
-    /* ── EBOOK SECTION ── */
-    .section-ebook{
-      background:var(--blush);
-      padding:72px 0;
-    }
+    /* ── EBOOK ── */
+    .section-ebook{background:var(--blush)}
     .ebook-grid{
-      display:grid;
-      grid-template-columns:300px 1fr;
-      gap:48px;
-      align-items:center;
+      display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center;
     }
     @media(max-width:768px){.ebook-grid{grid-template-columns:1fr}}
-    .ebook-mockup{
-      background:var(--navy);
-      border-radius:var(--r);
-      padding:24px;
-      box-shadow:var(--shadow-lg);
-      text-align:center;
+    .ebook-card{
+      background:var(--navy);border-radius:var(--r);padding:24px;
+      box-shadow:var(--shadow-lg);text-align:center;
     }
-    .ebook-mockup img{
-      width:100%;
-      border-radius:8px;
-      box-shadow:0 4px 16px rgba(0,0,0,.2);
+    .ebook-card img{width:100%;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+    .ebook-card .meta{
+      margin-top:16px;display:flex;justify-content:center;gap:20px;
     }
-    .ebook-details{
-      margin-top:16px;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-    }
-    .ebook-details span{
-      font-size:.75rem;
-      font-weight:700;
-      color:rgba(255,255,255,.7);
-      text-transform:uppercase;
-      letter-spacing:.05em;
+    .ebook-card .meta span{
+      font-size:.7rem;font-weight:700;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.05em;
     }
     .check-list{list-style:none}
     .check-list li{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      margin-bottom:16px;
-      font-size:.95rem;
-      font-weight:600;
+      display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;font-size:.95rem;font-weight:600;
     }
-    .check-list li .check-icon{
-      flex-shrink:0;
-      width:24px;height:24px;
-      background:var(--rose);
-      border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      margin-top:2px;
+    .check-list li .ck{
+      flex-shrink:0;width:24px;height:24px;background:var(--rose);
+      border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;
     }
-    .check-list li .check-icon svg{width:12px;height:12px;fill:#fff}
+    .check-list li .ck svg{width:12px;height:12px;fill:#fff}
 
-    /* ── TOPICS (CONTEÚDO) ── */
-    .section-topics{
-      background:var(--navy);
-      padding:72px 0;
-      color:var(--white);
-    }
+    /* ── TOPICS ── */
+    .section-topics{background:var(--navy);padding:72px 0;color:var(--white)}
     .section-topics .section-title{color:var(--white)}
     .section-topics .section-title .rose{color:var(--gold)}
     .topics-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
-      margin-top:40px;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px;
     }
-    .topic-card{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:var(--r);
-      padding:24px;
-      display:flex;
-      gap:16px;
-      align-items:flex-start;
-      backdrop-filter:blur(4px);
-      transition:background .25s,transform .25s;
+    .t-card{
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+      border-radius:var(--r);padding:24px;display:flex;gap:16px;align-items:flex-start;
+      backdrop-filter:blur(4px);transition:background .25s,transform .25s;
     }
-    .topic-card:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-    .t-icon{
-      flex-shrink:0;
-      width:48px;height:48px;
+    .t-card:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+    .t-ico{
+      flex-shrink:0;width:48px;height:48px;
       background:linear-gradient(135deg, var(--rose), var(--rose-dk));
-      border-radius:14px;
-      display:flex;align-items:center;justify-content:center;
+      border-radius:14px;display:flex;align-items:center;justify-content:center;
     }
-    .t-icon svg{width:24px;height:24px;fill:#fff}
-    .t-title{font-weight:800;font-size:1rem;margin-bottom:4px}
-    .t-desc{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.6}
+    .t-ico svg{width:24px;height:24px;fill:#fff}
+    .t-ttl{font-weight:800;font-size:1rem;margin-bottom:4px}
+    .t-dsc{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.6}
     .topics-stats{
-      margin-top:36px;
-      text-align:center;
-      background:rgba(255,255,255,.06);
-      border-radius:var(--r);
-      padding:24px;
-      font-size:.9rem;
-      color:rgba(255,255,255,.7);
+      margin-top:36px;text-align:center;background:rgba(255,255,255,.06);
+      border-radius:var(--r);padding:24px;font-size:.9rem;color:rgba(255,255,255,.7);
     }
     .topics-stats strong{color:var(--white);font-size:1.05rem}
 
-    /* ── FOR WHOM ── */
-    .section-whom{background:var(--white);padding:72px 0}
-    .whom-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
-      align-items:center;
-    }
-    @media(max-width:768px){.whom-grid{grid-template-columns:1fr}}
-    .whom-img-wrap{
-      border-radius:var(--r);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .whom-img-wrap img{
-      width:100%;
-      height:380px;
-      object-fit:cover;
-    }
-    @media(max-width:768px){.whom-img-wrap img{height:260px}}
+    /* ── WHOM ── */
+    .section-whom{background:var(--white)}
     .whom-list{list-style:none}
     .whom-list li{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      padding:14px 0;
-      border-bottom:1px solid #f0e4ec;
-      font-size:.95rem;
+      display:flex;gap:14px;align-items:flex-start;
+      padding:14px 0;border-bottom:1px solid #f0e4ec;font-size:.95rem;
     }
     .whom-list li:last-child{border-bottom:none}
-    .whom-arrow{
-      flex-shrink:0;
-      width:28px;height:28px;
+    .whom-arr{
+      flex-shrink:0;width:28px;height:28px;
       background:linear-gradient(135deg, var(--rose), var(--rose-dk));
-      border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      margin-top:2px;
+      border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;
     }
-    .whom-arrow svg{width:12px;height:12px;fill:#fff}
+    .whom-arr svg{width:12px;height:12px;fill:#fff}
     .conclusion-box{
       background:linear-gradient(135deg, var(--navy-lt), var(--rose-lt));
-      border-radius:var(--r);
-      padding:28px;
-      margin-top:28px;
-      font-size:.95rem;
-      line-height:1.7;
+      border-radius:var(--r);padding:28px;margin-top:28px;font-size:.95rem;line-height:1.7;
     }
 
-    /* ── WHY SPECIAL ── */
-    .section-why{
-      background:var(--cream);
-      padding:72px 0;
-    }
-    .why-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
-      align-items:center;
-    }
-    @media(max-width:768px){.why-grid{grid-template-columns:1fr}}
-    .why-img-wrap{
-      border-radius:var(--r);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .why-img-wrap img{
-      width:100%;
-      height:380px;
-      object-fit:cover;
-    }
-    @media(max-width:768px){.why-img-wrap img{height:260px}}
+    /* ── WHY ── */
+    .section-why{background:var(--cream)}
     .why-box{
-      background:var(--white);
-      border-radius:var(--r);
-      padding:32px;
-      box-shadow:var(--shadow);
+      background:var(--white);border-radius:var(--r);padding:32px;box-shadow:var(--shadow);
     }
-    .why-box .lead{
-      color:var(--rose);
-      font-weight:800;
-      font-size:1.1rem;
-      margin-bottom:12px;
+    .why-box .lead{color:var(--rose);font-weight:800;font-size:1.1rem;margin-bottom:12px}
+    .why-box p{font-size:.95rem;line-height:1.8;color:var(--text)}
+    .compare-row{
+      display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;
     }
+    .compare-card{
+      flex:1;min-width:120px;border-radius:12px;padding:16px;text-align:center;
+    }
+    .compare-card .val{font-size:1.6rem;font-weight:900}
+    .compare-card .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-lt)}
 
-    /* ── DEPOIMENTOS ── */
-    .section-social{
-      background:var(--white);
-      padding:60px 0;
-      text-align:center;
+    /* ── SOCIAL ── */
+    .section-social{background:var(--white);padding:60px 0;text-align:center}
+    .social-row{
+      display:flex;justify-content:center;flex-wrap:wrap;gap:40px;margin-top:32px;
     }
-    .social-proof{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:32px;
-      margin-top:32px;
-    }
-    .social-item{
-      text-align:center;
-      max-width:220px;
-    }
-    .social-item .icon{
-      font-size:2rem;
-      margin-bottom:8px;
-    }
-    .social-item .num{
-      font-size:1.6rem;
-      font-weight:900;
-      color:var(--navy);
-    }
-    .social-item .label{font-size:.85rem;color:var(--text-lt)}
+    .social-item{text-align:center;min-width:140px}
+    .social-item .ico{font-size:2rem;margin-bottom:8px}
+    .social-item .num{font-size:1.6rem;font-weight:900;color:var(--navy)}
+    .social-item .lbl{font-size:.85rem;color:var(--text-lt)}
 
-    /* ── BÔNUS ── */
-    .section-bonuses{background:var(--blush);padding:72px 0}
+    /* ── BONUS ── */
+    .section-bonuses{background:var(--blush)}
     .bonus-header{text-align:center;margin-bottom:48px}
     .bonus-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;
     }
     @media(max-width:768px){.bonus-grid{grid-template-columns:1fr}}
-    .bonus-card{
-      background:var(--white);
-      border-radius:var(--r);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:transform .25s,box-shadow .25s;
-      display:flex;
-      flex-direction:column;
+    .b-card{
+      background:var(--white);border-radius:var(--r);overflow:hidden;
+      box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
+      display:flex;flex-direction:column;
     }
-    .bonus-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-    .bonus-top{
+    .b-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .b-top{
       background:linear-gradient(135deg, var(--navy), #283593);
-      padding:28px 24px;
-      text-align:center;
-      min-height:150px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      padding:32px 24px;text-align:center;min-height:170px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
     }
-    .bonus-top svg{width:64px;height:64px}
-    .bonus-top .b-num{
-      font-size:.75rem;
-      font-weight:800;
-      letter-spacing:.08em;
-      color:var(--gold);
-      text-transform:uppercase;
-      margin-top:8px;
+    .b-top svg{width:80px;height:80px}
+    .b-top .b-tag{
+      font-size:.7rem;font-weight:800;letter-spacing:.08em;
+      color:var(--gold);text-transform:uppercase;margin-top:10px;
     }
-    .bonus-body{padding:24px}
-    .bonus-body h3{
-      font-family:var(--font-display);
-      font-size:1.15rem;
-      color:var(--navy);
-      margin-bottom:10px;
+    .b-body{padding:24px}
+    .b-body h3{
+      font-family:var(--font-dp);font-size:1.15rem;color:var(--navy);margin-bottom:10px;
     }
-    .bonus-body p{font-size:.88rem;color:var(--text-lt);line-height:1.7}
+    .b-body p{font-size:.88rem;color:var(--text-lt);line-height:1.7}
+    .bundle-box{
+      text-align:center;margin-top:40px;padding:32px;
+      background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);
+    }
+    .bundle-box .big{font-size:2.2rem;font-weight:900;color:var(--rose);margin:8px 0}
+    .bundle-box .big del{color:#aaa;font-size:1.4rem}
 
     /* ── GUARANTEE ── */
-    .section-guarantee{
+    .section-guar{
       background:linear-gradient(135deg, var(--navy), #283593);
-      color:var(--white);
-      padding:72px 0;
+      color:var(--white);padding:72px 0;
     }
-    .guarantee-grid{
-      display:grid;
-      grid-template-columns:180px 1fr;
-      gap:40px;
-      align-items:center;
+    .guar-grid{
+      display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:center;
     }
-    @media(max-width:600px){.guarantee-grid{grid-template-columns:1fr;text-align:center}}
-    .guarantee-badge{text-align:center}
-    .guarantee-badge svg{width:140px;height:auto}
-    .guarantee-title{
-      font-family:var(--font-display);
-      font-size:1.6rem;
-      margin-bottom:16px;
-    }
-    .guarantee-text{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.75)}
-    .guarantee-text strong{color:var(--white)}
+    @media(max-width:600px){.guar-grid{grid-template-columns:1fr;text-align:center}}
+    .guar-badge{text-align:center}
+    .guar-badge svg{width:140px;height:auto}
+    .guar-ttl{font-family:var(--font-dp);font-size:1.6rem;margin-bottom:16px}
+    .guar-txt{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.75)}
+    .guar-txt strong{color:var(--white)}
 
     /* ── FAQ ── */
     .section-faq{background:var(--off);padding:72px 0}
-    .faq-title{
-      text-align:center;
-      font-family:var(--font-display);
-      font-size:1.8rem;
-      color:var(--navy);
-      margin-bottom:40px;
+    .faq-ttl{
+      text-align:center;font-family:var(--font-dp);font-size:1.8rem;color:var(--navy);margin-bottom:40px;
     }
     .faq-list{max-width:680px;margin:0 auto}
     .faq-item{
-      background:var(--white);
-      border-radius:12px;
-      margin-bottom:12px;
-      overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,.06);
+      background:var(--white);border-radius:12px;margin-bottom:12px;
+      overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06);
     }
     .faq-q{
-      width:100%;
-      background:none;
-      border:none;
-      padding:20px 24px;
-      text-align:left;
-      font-family:var(--font);
-      font-size:.95rem;
-      font-weight:800;
-      color:var(--dark);
-      cursor:pointer;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
+      width:100%;background:none;border:none;padding:20px 24px;
+      text-align:left;font-family:var(--font);font-size:.95rem;
+      font-weight:800;color:var(--dark);cursor:pointer;
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
     }
     .faq-q .arr{
-      flex-shrink:0;
-      width:24px;height:24px;
-      background:var(--rose);
-      border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;width:24px;height:24px;background:var(--rose);
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
       transition:transform .25s;
     }
     .faq-q .arr svg{width:12px;height:12px;fill:#fff}
     .faq-item.open .faq-q .arr{transform:rotate(180deg)}
     .faq-a{
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .3s ease,padding .3s ease;
-      padding:0 24px;
-      font-size:.9rem;
-      color:var(--text-lt);
-      line-height:1.7;
+      max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
+      padding:0 24px;font-size:.9rem;color:var(--text-lt);line-height:1.7;
     }
     .faq-item.open .faq-a{max-height:300px;padding:0 24px 20px}
 
-    /* ── FINAL CTA ── */
-    .section-final{
-      padding:72px 0;
-      text-align:center;
-      background:var(--cream);
+    /* ── FINAL ── */
+    .section-final{padding:72px 0;text-align:center;background:var(--cream)}
+    .section-final .f-ttl{
+      font-family:var(--font-dp);font-size:clamp(1.4rem,3vw,2rem);color:var(--navy);margin-bottom:12px;
     }
-    .section-final .final-title{
-      font-family:var(--font-display);
-      font-size:clamp(1.4rem,3vw,2rem);
-      color:var(--navy);
-      margin-bottom:12px;
-    }
-    .section-final .final-sub{color:var(--text-lt);margin-bottom:24px;font-size:.95rem}
+    .section-final .f-sub{color:var(--text-lt);margin-bottom:24px;font-size:.95rem}
 
-    /* ── SECURITY BADGES ── */
-    .badges-row{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:24px;
-    }
+    /* ── BADGES ── */
+    .badges-row{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:24px}
     .badge{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      background:var(--white);
-      border:1px solid #e0e0e0;
-      border-radius:8px;
-      padding:7px 14px;
-      font-size:.75rem;
-      font-weight:700;
-      color:var(--text);
+      display:flex;align-items:center;gap:6px;background:var(--white);
+      border:1px solid #e0e0e0;border-radius:8px;padding:7px 14px;font-size:.75rem;font-weight:700;color:var(--text);
     }
     .badge svg{width:18px;height:18px}
 
-    /* ── FOOTER ── */
     .footer{
-      background:var(--navy);
-      color:rgba(255,255,255,.5);
-      text-align:center;
-      padding:28px 16px;
-      font-size:.8rem;
+      background:var(--navy);color:rgba(255,255,255,.5);text-align:center;
+      padding:28px 16px;font-size:.8rem;
     }
-    .footer a{color:rgba(255,255,255,.7);text-decoration:none;margin:0 10px}
+    .footer a{color:rgba(255,255,255,.7);margin:0 10px}
     .footer a:hover{color:var(--white)}
 
-    /* ── RESPONSIVE ── */
     @media(max-width:768px){
-      .hero{padding:24px 0 60px}
-      .hero-top{margin-bottom:24px}
-      .section-pain,.section-ebook,.section-topics,.section-whom,.section-why,.section-bonuses,.section-guarantee,.section-faq,.section-final{padding:48px 0}
+      .section{padding:48px 0}
     }
-
-    /* ── ANIMATIONS ── */
-    .fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
-    .fade-up.show{opacity:1;transform:translateY(0)}
   </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
-  🔥 Oferta Especial por Tempo Limitado — <span>de R$ 97 por apenas R$ 27!</span>
+  Oferta Especial por Tempo Limitado — <span>de R$ 97 por apenas R$ 27!</span>
 </div>
 
 <!-- ════ HERO ════ -->
 <header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-top">
       <div>
         <div class="logo-text">Cuidados <span>com o Bebê</span></div>
         <div class="logo-sub">Guia Completo para Mamães</div>
       </div>
-      <div class="hero-badge">⭐ +2.000 mamães atendidas</div>
+      <div class="hero-badge">+2.000 mamães atendidas</div>
     </div>
-
-    <div class="hero-grid">
-      <div>
-        <h1>O passo a passo que toda <span>mamãe de primeira viagem</span> precisa para cuidar do seu bebê com confiança</h1>
-        <p class="hero-sub">Descubra o método simples que já ajudou milhares de mães a saírem da insegurança e se tornarem referência no cuidado com seus bebês — do nascimento ao primeiro ano de vida.</p>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="num">83</span>
-            <span class="label">Páginas</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">4</span>
-            <span class="label">Bônus</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">7</span>
-            <span class="label">Dias de Garantia</span>
-          </div>
-        </div>
-
-        <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
-          QUERO CUIDAR DO MEU BEBÊ
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+    <div class="hero-content">
+      <h1>O passo a passo que toda <span>mamãe de primeira viagem</span> precisa para cuidar do seu bebê com confiança</h1>
+      <p class="hero-sub">Descubra o método simples que já ajudou milhares de mães a saírem da insegurança e se tornarem referência no cuidado com seus bebês — do nascimento ao primeiro ano de vida.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">83</span><span class="label">Páginas</span></div>
+        <div class="hero-stat"><span class="num">4</span><span class="label">Bônus</span></div>
+        <div class="hero-stat"><span class="num">7</span><span class="label">Dias de Garantia</span></div>
       </div>
-
-      <div class="hero-visual">
-        <div class="hero-img-wrap">
-          <img src="https://images.unsplash.com/photo-1756367141155-487da3717d54?w=600&h=600&fit=crop&auto=format" alt="Bebê recém-nascido sendo segurado com carinho" loading="eager">
-          <div class="hero-img-badge">📖 Método Comprovado</div>
-        </div>
-      </div>
+      <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
+        QUERO CUIDAR DO MEU BEBÊ
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </header>
 
-<!-- ════ VÍDEO DE APRESENTAÇÃO ════ -->
-<section class="video-section">
+<!-- ════ VÍDEO ════ -->
+<section class="section-video">
   <div class="container">
     <h2>Assista ao vídeo e descubra como <span style="color:var(--rose)">transformar sua maternidade</span></h2>
     <p class="sub">Veja como o método funciona na prática e como ele pode ajudar você e seu bebê.</p>
@@ -783,151 +438,122 @@
   </div>
 </section>
 
-<!-- ════ PAIN / PROBLEM ════ -->
-<section class="section-pain">
+<!-- ════ PAIN ════ -->
+<section class="section section-pain">
   <div class="container">
-    <div class="pain-grid">
-      <div class="pain-img-wrap">
-        <img src="https://images.unsplash.com/photo-1517872315417-1f82b6b38e14?w=600&h=600&fit=crop&auto=format" alt="Pés de bebê segurados com carinho" loading="lazy">
+    <div class="grid-2">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1517872315417-1f82b6b38e14?auto=format&fit=crop&w=700&q=80" alt="Pés de bebê" loading="lazy">
       </div>
-      <div class="pain-content">
+      <div class="text-col">
         <span class="section-label">É assim que você se sente?</span>
         <h2 class="section-title">Ser mãe de primeira viagem é <span class="rose">mais difícil do que você imaginava?</span></h2>
         <ul class="pain-list">
-          <li><span class="pain-icon">😰</span>Você não sabe se está cuidando do seu bebê do jeito certo</li>
-          <li><span class="pain-icon">😫</span>Você está exausta porque ele não dorme a noite toda</li>
-          <li><span class="pain-icon">😢</span>Você não entende por que ele chora e isso te desespera</li>
-          <li><span class="pain-icon">😔</span>Você se sente insegura, culpada e sem confiança como mãe</li>
-          <li><span class="pain-icon">💔</span>Você está perdendo o controle da situação e isso afeta sua saúde mental</li>
+          <li><span class="pain-ico">😰</span>Você não sabe se está cuidando do seu bebê do jeito certo</li>
+          <li><span class="pain-ico">😫</span>Você está exausta porque ele não dorme a noite toda</li>
+          <li><span class="pain-ico">😢</span>Você não entende por que ele chora e isso te desespera</li>
+          <li><span class="pain-ico">😔</span>Você se sente insegura, culpada e sem confiança como mãe</li>
+          <li><span class="pain-ico">💔</span>Você está perdendo o controle da situação e isso afeta sua saúde mental</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ CTA BANNER #1 ════ -->
+<!-- ════ CTA #1 ════ -->
 <div class="cta-banner">
   <div class="container">
     <p style="font-size:1.1rem;font-weight:700">Chega de sofrer em silêncio! Hoje você tem acesso ao método completo por apenas</p>
     <div class="price"><del>R$ 97</del> <strong>R$ 27 HOJE!</strong></div>
     <p style="margin-top:8px">+ 4 Bônus Exclusivos + Garantia de 7 Dias</p>
-    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="margin-top:20px">
-      QUERO APRENDER AGORA
-    </a>
-    <p class="small" style="margin-top:12px">Compra 100% segura • Acesso imediato em PDF</p>
+    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">QUERO APRENDER AGORA</a>
+    <p class="small" style="margin-top:12px">Compra 100% segura — Acesso imediato em PDF</p>
   </div>
 </div>
 
-<!-- ════ EBOOK (SOLUÇÃO) ════ -->
-<section class="section-ebook">
+<!-- ════ EBOOK ════ -->
+<section class="section section-ebook">
   <div class="container">
     <div class="ebook-grid">
-      <div class="ebook-mockup">
-        <img src="https://images.unsplash.com/photo-1616627547584-bf28cee262db?w=300&h=400&fit=crop&auto=format" alt="Ebook Cuidados com o Bebê">
-        <div class="ebook-details">
-          <span>📄 83 Páginas</span>
-          <span>📝 10.658 Palavras</span>
+      <div class="ebook-card">
+        <img src="https://images.unsplash.com/photo-1590086782792-42dd2350140d?auto=format&fit=crop&w=400&q=80" alt="Ebook Cuidados com o Bebê">
+        <div class="meta">
+          <span>83 Páginas</span>
+          <span>10.658 Palavras</span>
         </div>
       </div>
       <div>
         <span class="section-label">A Solução</span>
         <h2 class="section-title">Apresentamos o método <span class="rose">"Como Cuidar de Um Bebê"</span></h2>
-        <p style="margin-bottom:20px;font-size:.95rem;color:var(--text-lt)">Um guia passo a passo completo, escrito em linguagem simples e acolhedora, que vai te ensinar tudo o que você precisa saber para cuidar do seu bebê com amor, segurança e confiança.</p>
+        <p style="margin-bottom:20px;font-size:.95rem;color:var(--text-lt)">Um guia passo a passo completo, em linguagem simples e acolhedora, que vai te ensinar tudo para cuidar do seu bebê com amor, segurança e confiança.</p>
         <ul class="check-list">
-          <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cuidar do seu bebê da forma correta para que ele se desenvolva mais rápido</li>
-          <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Recuperar sua saúde mental, autoestima e confiança como mãe e mulher</li>
-          <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Se livrar dos traumas, sofrimentos e culpas que a maternidade traz</li>
-          <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Se tornar uma mãe segura que sabe exatamente o que está fazendo</li>
+          <li><span class="ck"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cuidar do seu bebê da forma correta para que ele se desenvolva mais rápido</li>
+          <li><span class="ck"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Recuperar sua saúde mental, autoestima e confiança como mãe e mulher</li>
+          <li><span class="ck"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Se livrar dos traumas, sofrimentos e culpas que a maternidade traz</li>
+          <li><span class="ck"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Se tornar uma mãe segura que sabe exatamente o que está fazendo</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ CONTEÚDO (TÓPICOS) ════ -->
+<!-- ════ TOPICS ════ -->
 <section class="section-topics">
   <div class="container">
     <div style="text-align:center;margin-bottom:32px">
       <span class="section-label" style="background:var(--gold);color:var(--navy)">Conteúdo do Guia</span>
       <h2 class="section-title">Aqui estão os tópicos que você vai <span class="rose">encontrar dentro deste guia</span></h2>
     </div>
-
     <div class="topics-grid">
-      <div class="topic-card">
-        <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M9 2H2v7h2V4h5V2zM22 9v7h-2v5h-7v2h9V9zM2 22l7-7 3 3 5-5 2 2-7 7-3-3-5 5H2z"/></svg></div>
-        <div>
-          <div class="t-title">Segredo do Sono Tranquilo</div>
-          <div class="t-desc">Técnica para fazer o seu bebê dormir a noite toda — use sempre que quiser que o bebê descanse.</div>
-        </div>
+      <div class="t-card">
+        <div class="t-ico"><svg viewBox="0 0 24 24"><path d="M9 2H2v7h2V4h5V2zM22 9v7h-2v5h-7v2h9V9zM2 22l7-7 3 3 5-5 2 2-7 7-3-3-5 5H2z"/></svg></div>
+        <div><div class="t-ttl">Segredo do Sono Tranquilo</div><div class="t-dsc">Técnica para fazer o seu bebê dormir a noite toda — use sempre que quiser que o bebê descanse.</div></div>
       </div>
-      <div class="topic-card">
-        <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div>
-        <div>
-          <div class="t-title">Amamentação Sem Dor</div>
-          <div class="t-desc">Passo a passo correto para amamentar — sem empedramentos, rachaduras ou dores.</div>
-        </div>
+      <div class="t-card">
+        <div class="t-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div>
+        <div><div class="t-ttl">Amamentação Sem Dor</div><div class="t-dsc">Passo a passo correto para amamentar — sem empedramentos, rachaduras ou dores.</div></div>
       </div>
-      <div class="topic-card">
-        <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg></div>
-        <div>
-          <div class="t-title">Intuição de Mãe</div>
-          <div class="t-desc">Como identificar se o bebê chora por fome, sono, medo ou qualquer outra necessidade.</div>
-        </div>
+      <div class="t-card">
+        <div class="t-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg></div>
+        <div><div class="t-ttl">Intuição de Mãe</div><div class="t-dsc">Como identificar se o bebê chora por fome, sono, medo ou qualquer outra necessidade.</div></div>
       </div>
-      <div class="topic-card">
-        <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-        <div>
-          <div class="t-title">Vínculo Profundo</div>
-          <div class="t-desc">Como criar uma conexão de amor para que o bebê cresça seguro e confiante.</div>
-        </div>
+      <div class="t-card">
+        <div class="t-ico"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <div><div class="t-ttl">Vínculo Profundo</div><div class="t-dsc">Como criar uma conexão de amor para que o bebê cresça seguro e confiante.</div></div>
       </div>
-      <div class="topic-card">
-        <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
-        <div>
-          <div class="t-title">Saúde do Bebê</div>
-          <div class="t-desc">Como identificar se ele está bem ou doente, suas causas e os segredinhos de mãe experiente.</div>
-        </div>
+      <div class="t-card">
+        <div class="t-ico"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+        <div><div class="t-ttl">Saúde do Bebê</div><div class="t-dsc">Como identificar se ele está bem ou doente, suas causas e os segredinhos de mãe experiente.</div></div>
       </div>
-      <div class="topic-card">
-        <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div>
-          <div class="t-title">Banho e Higiene</div>
-          <div class="t-desc">O passo a passo completo para dar banho no bebê com segurança, cuidar do coto umbilical e manter a higiene ideal.</div>
-        </div>
+      <div class="t-card">
+        <div class="t-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><div class="t-ttl">Banho e Higiene</div><div class="t-dsc">Passo a passo completo para dar banho no bebê com segurança e cuidar do coto umbilical.</div></div>
       </div>
     </div>
-
     <div class="topics-stats">
       Se colocado em prática o quanto antes, mais rápido você vai aprender a cuidar do seu bebê do jeito certo.<br>
       <strong>Condensamos todas as informações valiosas em 10.658 palavras e 83 páginas.</strong>
     </div>
-
-    <div style="text-align:center;margin-top:36px">
-      <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
-        QUERO ACESSAR O CONTEÚDO COMPLETO
-      </a>
-    </div>
   </div>
 </section>
 
-<!-- ════ FOR WHOM ════ -->
-<section class="section-whom">
+<!-- ════ WHOM ════ -->
+<section class="section section-whom">
   <div class="container">
     <div style="text-align:center;margin-bottom:40px">
       <span class="section-label">Para quem é este guia</span>
       <h2 class="section-title">Se você é mamãe e está passando por pelo menos uma das situações abaixo, <span class="rose">você precisa deste guia</span></h2>
     </div>
-
-    <div class="whom-grid">
-      <div class="whom-img-wrap">
-        <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=600&h=600&fit=crop&auto=format" alt="Mamãe com seu bebê" loading="lazy">
+    <div class="grid-2">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1555252333-9f8e92f65f72?auto=format&fit=crop&w=700&q=80" alt="Mamãe com seu bebê" loading="lazy">
       </div>
-      <div>
+      <div class="text-col">
         <ul class="whom-list">
-          <li><span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Vai ser mãe e está muito insegura por não saber como cuidar do seu bebê</li>
-          <li><span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Está morta de cansada porque tem que levantar toda madrugada para fazer seu bebê dormir</li>
-          <li><span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Não sabe por que seu bebê chora tanto</li>
-          <li><span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Está ficando depressiva por estar perdendo o controle da situação nessa fase inicial da maternidade</li>
+          <li><span class="whom-arr"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Vai ser mãe e está muito insegura por não saber como cuidar do seu bebê</li>
+          <li><span class="whom-arr"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Está morta de cansada porque tem que levantar toda madrugada para fazer seu bebê dormir</li>
+          <li><span class="whom-arr"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Não sabe por que seu bebê chora tanto</li>
+          <li><span class="whom-arr"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>Está ficando depressiva por estar perdendo o controle da situação nessa fase inicial da maternidade</li>
         </ul>
         <div class="conclusion-box">
           <strong>Isso parece ser exatamente o que você está passando?</strong><br><br>
@@ -938,30 +564,29 @@
   </div>
 </section>
 
-<!-- ════ WHY SPECIAL ════ -->
-<section class="section-why">
+<!-- ════ WHY ════ -->
+<section class="section section-why">
   <div class="container">
     <h2 class="section-title" style="text-align:center;margin-bottom:40px">
       O que faz este método ser tão especial<br><span class="rose">comparado aos outros disponíveis no mercado?</span>
     </h2>
-
-    <div class="why-grid">
-      <div class="why-img-wrap">
-        <img src="https://images.unsplash.com/photo-1555252333-9f8e92f65f72?w=600&h=600&fit=crop&auto=format" alt="Bebê dormindo tranquilamente" loading="lazy">
+    <div class="grid-2">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1517872315417-1f82b6b38e14?auto=format&fit=crop&w=700&q=80" alt="Bebê dormindo tranquilamente" loading="lazy">
       </div>
-      <div class="why-box">
-        <p class="lead">Considere o seguinte…</p>
-        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">
-          Muitos investem significativas quantias em cursos e consultorias, buscando desvendar os mistérios da maternidade e do cuidado infantil. No entanto, você tem a oportunidade de adquirir esse conhecimento essencial por uma fração mínima do custo que gastaria com esses especialistas — permitindo que você comece a aplicar estas técnicas valiosas <strong>imediatamente</strong>, sem comprometer seu orçamento familiar.
-        </p>
-        <div style="margin-top:20px;display:flex;gap:16px;flex-wrap:wrap">
-          <div style="flex:1;min-width:120px;background:var(--rose-lt);border-radius:12px;padding:16px;text-align:center">
-            <div style="font-size:1.6rem;font-weight:900;color:var(--rose)">R$ 27</div>
-            <div style="font-size:.75rem;color:var(--text-lt);text-transform:uppercase;letter-spacing:.05em">Este Guia</div>
-          </div>
-          <div style="flex:1;min-width:120px;background:#f5f5f5;border-radius:12px;padding:16px;text-align:center">
-            <div style="font-size:1.6rem;font-weight:900;color:#999"><del>R$ 500+</del></div>
-            <div style="font-size:.75rem;color:var(--text-lt);text-transform:uppercase;letter-spacing:.05em">Consultorias</div>
+      <div class="text-col">
+        <div class="why-box">
+          <p class="lead">Considere o seguinte…</p>
+          <p>Muitos investem significativas quantias em cursos e consultorias, buscando desvendar os mistérios da maternidade e do cuidado infantil. No entanto, você tem a oportunidade de adquirir esse conhecimento essencial por uma fração mínima do custo que gastaria com esses especialistas — permitindo que você comece a aplicar estas técnicas valiosas <strong>imediatamente</strong>, sem comprometer seu orçamento familiar.</p>
+          <div class="compare-row">
+            <div class="compare-card" style="background:var(--rose-lt)">
+              <div class="val" style="color:var(--rose)">R$ 27</div>
+              <div class="lbl">Este Guia</div>
+            </div>
+            <div class="compare-card" style="background:#f5f5f5">
+              <div class="val" style="color:#999"><del>R$ 500+</del></div>
+              <div class="lbl">Consultorias</div>
+            </div>
           </div>
         </div>
       </div>
@@ -969,33 +594,16 @@
   </div>
 </section>
 
-<!-- ════ SOCIAL PROOF ════ -->
+<!-- ════ SOCIAL ════ -->
 <section class="section-social">
   <div class="container">
     <h2 class="section-title" style="font-size:1.4rem">Mamães que já transformaram suas vidas</h2>
     <p style="color:var(--text-lt);font-size:.9rem">Números que comprovam a eficácia do método</p>
-
-    <div class="social-proof">
-      <div class="social-item">
-        <div class="icon">👶</div>
-        <div class="num">+2.000</div>
-        <div class="label">Mamães atendidas</div>
-      </div>
-      <div class="social-item">
-        <div class="icon">⭐</div>
-        <div class="num">4.9</div>
-        <div class="label">Avaliação média</div>
-      </div>
-      <div class="social-item">
-        <div class="icon">📄</div>
-        <div class="num">83</div>
-        <div class="label">Páginas de conteúdo</div>
-      </div>
-      <div class="social-item">
-        <div class="icon">🎁</div>
-        <div class="num">4</div>
-        <div class="label">Bônus exclusivos</div>
-      </div>
+    <div class="social-row">
+      <div class="social-item"><div class="ico">👶</div><div class="num">+2.000</div><div class="lbl">Mamães atendidas</div></div>
+      <div class="social-item"><div class="ico">⭐</div><div class="num">4.9</div><div class="lbl">Avaliação média</div></div>
+      <div class="social-item"><div class="ico">📄</div><div class="num">83</div><div class="lbl">Páginas de conteúdo</div></div>
+      <div class="social-item"><div class="ico">🎁</div><div class="num">4</div><div class="lbl">Bônus exclusivos</div></div>
     </div>
   </div>
 </section>
@@ -1006,32 +614,18 @@
     <p style="font-size:1.1rem;font-weight:700">Você merece ser uma mãe confiante e feliz!</p>
     <div class="price" style="color:var(--gold)"><del style="color:rgba(255,255,255,.4)">R$ 97</del> <strong>R$ 27 HOJE!</strong></div>
     <p style="margin-top:8px">Acesso imediato + 4 Bônus + Garantia de 7 Dias</p>
-    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="margin-top:20px">
-      QUERO SER UMA MÃE CONFIANTE
-    </a>
-    <div class="badges-row">
-      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7z" stroke="#81c784" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#81c784" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Compra 100% Segura
-      </span>
-      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#64b5f6" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#64b5f6" stroke-width="2" stroke-linecap="round"/></svg>
-        SSL Criptografado
-      </span>
-      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)">
-        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#ffb74d" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#ffb74d" stroke-width="2" stroke-linecap="round"/></svg>
-        Garantia de 7 dias
-      </span>
-      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#ef9a9a" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" stroke="#ef9a9a" stroke-width="2"/></svg>
-        Entrega Imediata
-      </span>
+    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">QUERO SER UMA MÃE CONFIANTE</a>
+    <div class="badges-row" style="justify-content:center">
+      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7z" stroke="#81c784" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#81c784" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Compra 100% Segura</span>
+      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#64b5f6" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#64b5f6" stroke-width="2" stroke-linecap="round"/></svg>SSL Criptografado</span>
+      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#ffb74d" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#ffb74d" stroke-width="2" stroke-linecap="round"/></svg>Garantia de 7 dias</span>
+      <span class="badge" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:var(--white)"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#ef9a9a" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" stroke="#ef9a9a" stroke-width="2"/></svg>Entrega Imediata</span>
     </div>
   </div>
 </div>
 
 <!-- ════ BÔNUS ════ -->
-<section class="section-bonuses">
+<section class="section section-bonuses">
   <div class="container">
     <div class="bonus-header">
       <span class="section-label">Bônus Exclusivos</span>
@@ -1039,94 +633,104 @@
     </div>
 
     <div class="bonus-grid">
-      <!-- BÔNUS 1 -->
-      <div class="bonus-card">
-        <div class="bonus-top">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="20" width="60" height="50" rx="6" fill="#fff" opacity=".9"/>
-            <rect x="30" y="12" width="20" height="14" rx="4" fill="#b0bec5"/>
-            <rect x="16" y="34" width="20" height="20" rx="4" fill="#4caf50" opacity=".8"/>
-            <path d="M19 44l5 5 11-11" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="42" y="38" width="24" height="4" rx="2" fill="#e0e0e0"/>
-            <rect x="42" y="48" width="18" height="4" rx="2" fill="#e0e0e0"/>
-            <text x="40" y="64" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="#fff">#1</text>
+      <!-- BÔNUS 1: CHECKLIST -->
+      <div class="b-card">
+        <div class="b-top">
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="15" y="22" width="60" height="54" rx="6" fill="#fff" opacity=".9"/>
+            <rect x="34" y="14" width="22" height="14" rx="4" fill="#b0bec5"/>
+            <rect x="22" y="36" width="18" height="18" rx="3" fill="#4caf50" opacity=".8"/>
+            <path d="M25 45l5 5 9-9" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="46" y="39" width="22" height="4" rx="2" fill="#e0e0e0"/>
+            <rect x="46" y="48" width="16" height="4" rx="2" fill="#e0e0e0"/>
+            <rect x="46" y="57" width="20" height="4" rx="2" fill="#e0e0e0"/>
+            <rect x="22" y="56" width="18" height="18" rx="3" fill="#e0e0e0"/>
+            <text x="45" y="72" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">#1</text>
           </svg>
-          <div class="b-num">Bônus #1</div>
+          <div class="b-tag">Bônus #1</div>
         </div>
-        <div class="bonus-body">
+        <div class="b-body">
           <h3>Checklist Completo</h3>
           <p>Este checklist exclusivo simplifica o aprendizado, facilitando a compreensão de cada etapa do guia principal. Garanta que você não deixe passar nenhum detalhe importante no desenvolvimento e bem-estar do seu bebê.</p>
         </div>
       </div>
 
-      <!-- BÔNUS 2 -->
-      <div class="bonus-card">
-        <div class="bonus-top">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="22" fill="#fc3a7b"/>
-            <text x="40" y="46" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">BEBÊ</text>
-            <line x1="40" y1="18" x2="40" y2="10" stroke="#fff" stroke-width="2"/>
-            <circle cx="40" cy="6" r="10" fill="#fff" opacity=".85"/>
-            <text x="40" y="10" text-anchor="middle" font-size="6" fill="#1565c0" font-weight="700">SONO</text>
-            <line x1="62" y1="36" x2="70" y2="30" stroke="#fff" stroke-width="2"/>
-            <circle cx="74" cy="26" r="10" fill="#fff" opacity=".85"/>
-            <text x="74" y="30" text-anchor="middle" font-size="6" fill="#1565c0" font-weight="700">SAÚDE</text>
-            <text x="40" y="68" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="#fff">#2</text>
+      <!-- BÔNUS 2: MAPA MENTAL -->
+      <div class="b-card">
+        <div class="b-top">
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="45" r="18" fill="#fc3a7b"/>
+            <text x="45" y="50" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="9" fill="#fff">BEBÊ</text>
+            <line x1="45" y1="27" x2="45" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="45" cy="12" r="10" fill="#fff" opacity=".85"/>
+            <text x="45" y="16" text-anchor="middle" font-size="5.5" fill="#1a237e" font-weight="800">SONO</text>
+            <line x1="63" y1="40" x2="72" y2="34" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="76" cy="30" r="10" fill="#fff" opacity=".85"/>
+            <text x="76" y="34" text-anchor="middle" font-size="5.5" fill="#1a237e" font-weight="800">SAÚDE</text>
+            <line x1="63" y1="50" x2="72" y2="56" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="76" cy="60" r="10" fill="#fff" opacity=".85"/>
+            <text x="76" y="64" text-anchor="middle" font-size="5.5" fill="#1a237e" font-weight="800">LEITE</text>
+            <line x1="27" y1="40" x2="18" y2="34" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="30" r="10" fill="#fff" opacity=".85"/>
+            <text x="14" y="34" text-anchor="middle" font-size="5.5" fill="#1a237e" font-weight="800">CHORO</text>
+            <text x="45" y="80" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">#2</text>
           </svg>
-          <div class="b-num">Bônus #2</div>
+          <div class="b-tag">Bônus #2</div>
         </div>
-        <div class="bonus-body">
+        <div class="b-body">
           <h3>Mapa Mental</h3>
           <p>Perfeito para quem aprende visualmente. O mapa mental mapeia de forma clara as ideias principais, tornando-se um guia eficaz para entender e colocar em prática as estratégias de cuidado com o bebê.</p>
         </div>
       </div>
 
-      <!-- BÔNUS 3 -->
-      <div class="bonus-card">
-        <div class="bonus-top">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="40" cy="55" rx="30" ry="12" fill="#ffa726"/>
-            <path d="M10,52 Q10,70 40,74 Q70,70 70,52Z" fill="#ff8f00"/>
-            <ellipse cx="40" cy="35" rx="10" ry="6" fill="#ffe082"/>
-            <rect x="37" y="41" width="6" height="14" rx="3" fill="#ffe082"/>
-            <circle cx="33" cy="54" r="5" fill="#66bb6a"/>
-            <circle cx="44" cy="56" r="4" fill="#f57f17"/>
-            <circle cx="38" cy="50" r="4" fill="#ef9a9a"/>
-            <text x="40" y="72" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="#fff">#3</text>
+      <!-- BÔNUS 3: PAPINHA -->
+      <div class="b-card">
+        <div class="b-top">
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="28" y="8" width="34" height="12" rx="6" fill="#fff" opacity=".8"/>
+            <rect x="24" y="16" width="42" height="52" rx="8" fill="#ffa726"/>
+            <rect x="28" y="20" width="34" height="18" rx="4" fill="#fff" opacity=".5"/>
+            <ellipse cx="45" cy="62" rx="18" ry="5" fill="#ff8f00"/>
+            <circle cx="36" cy="60" r="5" fill="#66bb6a"/>
+            <circle cx="48" cy="58" r="4" fill="#f57f17"/>
+            <circle cx="42" cy="54" r="4" fill="#ef9a9a"/>
+            <rect x="39" y="72" width="12" height="10" rx="3" fill="#fff" opacity=".6"/>
+            <text x="45" y="86" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">#3</text>
           </svg>
-          <div class="b-num">Bônus #3</div>
+          <div class="b-tag">Bônus #3</div>
         </div>
-        <div class="bonus-body">
+        <div class="b-body">
           <h3>Como Fazer Papinha</h3>
-          <p>Guia prático para introduzir a papinha na alimentação do seu bebê. Saiba os sinais para começar a transição do leite para os alimentos, os melhores alimentos para oferecer e receitas deliciosas em apenas 2 minutinhos!</p>
+          <p>Guia prático para introduzir a papinha na alimentação do seu bebê. Saiba os sinais para começar, os melhores alimentos e receitas deliciosas em apenas 2 minutinhos!</p>
         </div>
       </div>
 
-      <!-- BÔNUS 4 -->
-      <div class="bonus-card">
-        <div class="bonus-top">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M40,65 C40,65 15,45 15,30 C15,22 22,18 28,22 C32,25 36,30 40,35 C44,30 48,25 52,22 C58,18 65,22 65,30 C65,45 40,65 40,65Z" fill="#fc3a7b" opacity=".4"/>
-            <path d="M40,58 C40,58 22,42 22,32 C22,26 27,23 31,26 C34,28 37,32 40,36 C43,32 46,28 49,26 C53,23 58,26 58,32 C58,42 40,58 40,58Z" fill="#fc3a7b" opacity=".7"/>
-            <path d="M40,51 C40,51 28,40 28,33 C28,29 31,27 34,29 C36,30 38,33 40,36 C42,33 44,30 46,29 C49,27 52,29 52,33 C52,40 40,51 40,51Z" fill="#fc3a7b"/>
-            <circle cx="40" cy="18" r="10" fill="#fff" opacity=".9" stroke="#1565c0" stroke-width="1.5"/>
-            <text x="40" y="22" text-anchor="middle" font-size="10" fill="#1565c0">☯</text>
-            <text x="40" y="74" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="#fff">#4</text>
+      <!-- BÔNUS 4: PACIÊNCIA -->
+      <div class="b-card">
+        <div class="b-top">
+          <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="45" r="30" fill="#fff" opacity=".15"/>
+            <path d="M45,68 C45,68 20,48 20,33 C20,25 27,21 33,25 C37,28 41,33 45,38 C49,33 53,28 57,25 C63,21 70,25 70,33 C70,48 45,68 45,68Z" fill="#fc3a7b" opacity=".35"/>
+            <path d="M45,61 C45,61 27,45 27,35 C27,29 32,26 36,29 C39,31 42,35 45,39 C48,35 51,31 54,29 C58,26 63,29 63,35 C63,45 45,61 45,61Z" fill="#fc3a7b" opacity=".6"/>
+            <path d="M45,54 C45,54 33,43 33,36 C33,32 36,30 39,32 C41,33 43,36 45,39 C47,36 49,33 51,32 C54,30 57,32 57,36 C57,43 45,54 45,54Z" fill="#fc3a7b"/>
+            <circle cx="45" cy="22" r="11" fill="#fff" opacity=".9" stroke="#1565c0" stroke-width="1.5"/>
+            <path d="M45,18 L45,22 L48,24" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/>
+            <text x="45" y="82" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">#4</text>
           </svg>
-          <div class="b-num">Bônus #4</div>
+          <div class="b-tag">Bônus #4</div>
         </div>
-        <div class="bonus-body">
+        <div class="b-body">
           <h3>Como Ser Mais Paciente</h3>
-          <p>Técnicas e dicas para não deixar as dificuldades da maternidade afetarem sua conexão de amor com o bebê. Torne-se uma mãe mais paciente, menos estressada e mais amorosa com seu bebê.</p>
+          <p>Técnicas e dicas para não deixar as dificuldades da maternidade afetarem sua conexão de amor com o bebê. Torne-se uma mãe mais paciente, menos estressada e mais amorosa.</p>
         </div>
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:40px;padding:32px;background:var(--white);border-radius:var(--r);box-shadow:var(--shadow)">
+    <div class="bundle-box">
       <p style="font-weight:900;font-size:1.2rem;color:var(--navy)">Você recebe <span style="color:var(--rose)">tudo isso</span> por apenas</p>
-      <p style="font-size:2.2rem;font-weight:900;color:var(--rose);margin:8px 0"><del style="color:#aaa;font-size:1.4rem">R$ 97</del> R$ 27</p>
+      <div class="big"><del>R$ 97</del> R$ 27</div>
       <p style="font-size:.9rem;color:var(--text-lt);margin-bottom:20px">Ebook + 4 Bônus + Garantia de 7 Dias</p>
-      <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
+      <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--rose), var(--rose-dk));box-shadow:0 6px 24px rgba(233,30,99,.4)">
         QUERO GARANTIR MEU ACESSO AGORA
       </a>
     </div>
@@ -1139,17 +743,15 @@
     <p style="font-size:1.1rem;font-weight:700">Não espere mais para transformar sua maternidade!</p>
     <div class="price"><del style="color:rgba(255,255,255,.4)">R$ 97</del> <strong>R$ 27 HOJE!</strong></div>
     <p style="margin-top:8px">+ 4 Bônus Exclusivos + Garantia de 7 Dias</p>
-    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="margin-top:20px">
-      QUERO CUIDAR DO MEU BEBÊ AGORA
-    </a>
+    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">QUERO CUIDAR DO MEU BEBÊ AGORA</a>
   </div>
 </div>
 
 <!-- ════ GUARANTEE ════ -->
-<section class="section-guarantee">
+<section class="section-guar">
   <div class="container">
-    <div class="guarantee-grid">
-      <div class="guarantee-badge">
+    <div class="guar-grid">
+      <div class="guar-badge">
         <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
           <path d="M80,10 L140,35 L140,80 C140,118 80,148 80,148 C80,148 20,118 20,80 L20,35 Z" fill="#ffd54f"/>
           <path d="M80,22 L130,44 L130,80 C130,112 80,138 80,138 C80,138 30,112 30,80 L30,44 Z" fill="#f9a825"/>
@@ -1161,8 +763,8 @@
         </svg>
       </div>
       <div>
-        <h2 class="guarantee-title">Você está 100% segura com nossa Garantia de 7 dias</h2>
-        <p class="guarantee-text">
+        <h2 class="guar-ttl">Você está 100% segura com nossa Garantia de 7 dias</h2>
+        <p class="guar-txt">
           <strong>Estou convencida da qualidade excepcional do meu Guia: "Como Cuidar de Um Bebê".</strong><br><br>
           No entanto, entendo que a verdadeira avaliação vem através da sua experiência pessoal, aplicando os ensinamentos contidos no guia. Por isso, ofereço uma <strong>garantia incondicional de 7 dias</strong>.<br><br>
           Se, por qualquer motivo, você não se encontrar totalmente satisfeita com o valor que este guia promete, estou preparada para devolver integralmente seu investimento, sem questionamentos. Nosso objetivo é sua satisfação e sucesso, nada menos.
@@ -1175,48 +777,30 @@
 <!-- ════ FAQ ════ -->
 <section class="section-faq">
   <div class="container">
-    <h2 class="faq-title">Perguntas Frequentes</h2>
+    <h2 class="faq-ttl">Perguntas Frequentes</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q">
-          O Que Está Sendo Oferecido Aqui?
-          <span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
+        <button class="faq-q">O Que Está Sendo Oferecido Aqui?<span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
         <div class="faq-a">Estamos oferecendo o Método "Como Cuidar de um Bebê", um guia passo a passo projetado para ajudar mamães de primeira viagem a cuidar de seus bebês desde o nascimento até o primeiro ano de vida. Inclui estratégias eficazes para o desenvolvimento saudável do bebê, além de bônus exclusivos para complementar o aprendizado.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          Este Método é Para Quem?
-          <span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <div class="faq-a">É ideal para mamães de primeira viagem que desejam aprender a cuidar de seus bebês de maneira correta, recuperar a saúde mental, aumentar a autoestima e a confiança, e eliminar traumas e culpas associados à maternidade. Também é para aquelas que querem estabelecer um vínculo profundo com seu bebê.</div>
+        <button class="faq-q">Este Método é Para Quem?<span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="faq-a">É ideal para mamães de primeira viagem que desejam aprender a cuidar de seus bebês de maneira correta, recuperar a saúde mental, aumentar a autoestima e a confiança, e eliminar traumas e culpas associados à maternidade.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          Em Quanto Tempo Posso Esperar Resultados?
-          <span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <div class="faq-a">Os resultados podem variar, mas muitas mães começam a ver mudanças positivas na rotina de cuidado com seus bebês imediatamente após aplicar as técnicas do guia. A velocidade dos resultados depende da consistência e do comprometimento em seguir as orientações do método.</div>
+        <button class="faq-q">Em Quanto Tempo Posso Esperar Resultados?<span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="faq-a">Os resultados podem variar, mas muitas mães começam a ver mudanças positivas na rotina de cuidado com seus bebês imediatamente após aplicar as técnicas do guia. A velocidade dos resultados depende da consistência em seguir as orientações do método.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          Como Acesso e Recebo o Guia Imediatamente?
-          <span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <div class="faq-a">Após a confirmação do pagamento, você receberá o guia "Como Cuidar de um Bebê" e todos os bônus diretamente no seu e-mail em formato PDF. Isso permite que você acesse o conteúdo em qualquer dispositivo, como celular, tablet ou computador, a qualquer hora e lugar.</div>
+        <button class="faq-q">Como Acesso e Recebo o Guia Imediatamente?<span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="faq-a">Após a confirmação do pagamento, você receberá o guia "Como Cuidar de um Bebê" e todos os bônus diretamente no seu e-mail em formato PDF. Isso permite que você acesse o conteúdo em qualquer dispositivo, como celular, tablet ou computador.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          Por Que Devo Adquirir Este Guia?
-          <span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
-        <div class="faq-a">Este guia oferece uma oportunidade única de aprender com um método comprovado, economizando tempo e dinheiro que você poderia gastar em cursos e consultorias. Com este guia, você ganha acesso a conhecimentos essenciais para ser uma mãe confiante e preparada, a um preço acessível.</div>
+        <button class="faq-q">Por Que Devo Adquirir Este Guia?<span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="faq-a">Este guia oferece uma oportunidade única de aprender com um método comprovado, economizando tempo e dinheiro que você poderia gastar em cursos e consultorias. Com este guia, você ganha acesso a conhecimentos essenciais para ser uma mãe confiante e preparada.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          E Se Eu Não Ficar Satisfeita?
-          <span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>
+        <button class="faq-q">E Se Eu Não Ficar Satisfeita?<span class="arr"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
         <div class="faq-a">Sua satisfação é nossa prioridade. Oferecemos uma garantia incondicional de 7 dias. Se você não estiver 100% satisfeita, basta solicitar o reembolso dentro deste período para receber todo o seu investimento de volta, sem perguntas.</div>
       </div>
     </div>
@@ -1226,15 +810,13 @@
 <!-- ════ FINAL CTA ════ -->
 <section class="section-final">
   <div class="container">
-    <h2 class="final-title">Chegou a hora de cuidar do seu bebê <span style="color:var(--rose)">com amor e confiança</span></h2>
-    <p class="final-sub">Você está a um clique de se tornar a mãe que sempre quis ser</p>
+    <h2 class="f-ttl">Chegou a hora de cuidar do seu bebê <span style="color:var(--rose)">com amor e confiança</span></h2>
+    <p class="f-sub">Você está a um clique de se tornar a mãe que sempre quis ser</p>
     <div style="margin-bottom:16px">
-      <div style="font-size:2.4rem;font-weight:900;color:var(--rose)">
-        <del style="color:#aaa;font-size:1.5rem">R$ 97</del> R$ 27
-      </div>
+      <div style="font-size:2.4rem;font-weight:900;color:var(--rose)"><del style="color:#aaa;font-size:1.5rem">R$ 97</del> R$ 27</div>
       <div style="font-size:.85rem;color:var(--text-lt)">Oferta por tempo limitado</div>
     </div>
-    <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="font-size:1.1rem;padding:18px 48px">
+    <a class="btn" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--rose), var(--rose-dk));box-shadow:0 6px 24px rgba(233,30,99,.4);font-size:1.1rem;padding:18px 48px">
       SIM! QUERO CUIDAR DO MEU BEBÊ
     </a>
     <div class="badges-row">
@@ -1245,17 +827,13 @@
   </div>
 </section>
 
-<!-- ════ FOOTER ════ -->
 <footer class="footer">
   <p>© COMO CUIDAR DE UM BEBÊ | TODOS OS DIREITOS RESERVADOS</p>
   <p style="margin-top:8px">
-    <a href="#">Contato</a>
-    <a href="#">Política de Privacidade</a>
-    <a href="#">Termos de Uso</a>
+    <a href="#">Contato</a> | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
   </p>
 </footer>
 
-<!-- ════ SCRIPTS ════ -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -1276,1288 +854,6 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
     if(!open) item.classList.add('open');
   });
 });
-
-// Scroll reveal
-var observer = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting){ entry.target.classList.add('show'); }
-  });
-}, { threshold: .1 });
-document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
 </script>
 </body>
 </html>
-=======
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cuidados com o Bebê – Guia Completo para Mamães</title>
-  <meta name="description" content="Método simples para mamães de primeira viagem aprenderem a cuidar do bebê do nascimento ao primeiro ano de vida.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --pink:    #fc3a7b;
-      --pink-lt: #ff6fa3;
-      --blue:    #0877ba;
-      --blue-lt: #10a5e0;
-      --sky:     #56e2ff;
-      --yellow:  #fff176;
-      --dark:    #1a1a2e;
-      --white:   #ffffff;
-      --off:     #f8f0f5;
-      --text:    #333344;
-      --grad1: linear-gradient(135deg, #0d2b6b 0%, #1565c0 50%, #0e7cc4 100%);
-      --grad2: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
-      --shadow: 0 8px 32px rgba(8,119,186,.18);
-      --r: 18px;
-      --max: 920px;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      color: var(--text);
-      background: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── HERO ─────────────────────────────────────── */
-    .hero {
-      background: var(--grad1);
-      padding: 48px 20px 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      height: 60px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 60'%3E%3Cpath fill='%23fff' d='M0,60 Q250,0 500,30 Q750,60 1000,10 L1000,60Z'/%3E%3C/svg%3E") center/cover no-repeat;
-    }
-    .hero-logo {
-      max-width: 340px;
-      margin: 0 auto 24px;
-    }
-    /* SVG logo inline */
-    .logo-svg { width: 100%; }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #cce8ff;
-      max-width: 640px;
-      margin: 0 auto 10px;
-      font-weight: 600;
-    }
-    .hero-subtitle .pink { color: var(--pink-lt); }
-    .hero-subtitle .sky  { color: var(--sky); }
-
-    .hero-hint {
-      color: var(--yellow);
-      font-size: .95rem;
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-    .hero-cta-text {
-      color: #cce8ff;
-      font-size: 1rem;
-      margin-bottom: 22px;
-    }
-
-    .video-wrap {
-      max-width: 620px;
-      margin: 0 auto;
-      border-radius: var(--r);
-      overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,.5);
-      position: relative;
-      background: #000;
-      aspect-ratio: 16/9;
-    }
-    .video-wrap iframe {
-      width: 100%; height: 100%;
-      position: absolute; inset: 0;
-      border: none;
-    }
-
-    /* ─── SHARED LAYOUT ─────────────────────────── */
-    .section {
-      padding: 64px 20px;
-    }
-    .inner { max-width: var(--max); margin: 0 auto; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    @media(max-width:680px){
-      .two-col { grid-template-columns: 1fr; }
-      .two-col .img-col { order: -1; }
-    }
-
-    /* ─── EBOOK MOCKUP SECTION ───────────────────── */
-    .section-ebook { background: var(--off); }
-
-    .tag-label {
-      display: inline-block;
-      background: var(--pink);
-      color: #fff;
-      font-weight: 800;
-      font-size: .85rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      border-radius: 50px;
-      padding: 4px 16px;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
-      line-height: 1.2;
-      color: var(--dark);
-      margin-bottom: 20px;
-    }
-    .section-title .pink { color: var(--pink); }
-    .section-title .blue { color: var(--blue); }
-
-    .check-list { list-style: none; }
-    .check-list li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin-bottom: 14px;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    .check-list li .icon {
-      flex-shrink: 0;
-      width: 22px; height: 22px;
-      background: var(--pink);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 2px;
-    }
-    .check-list li .icon svg { width: 12px; height: 12px; fill: #fff; }
-
-    /* ─── CTA BLOCK ──────────────────────────────── */
-    .cta-block {
-      background: var(--white);
-      padding: 64px 20px;
-      text-align: center;
-    }
-    .cta-lead {
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-    .cta-desc {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto 12px;
-    }
-    .cta-desc .pink { color: var(--pink); font-weight: 800; }
-    .cta-delivery {
-      font-size: .9rem;
-      color: #666;
-      max-width: 560px;
-      margin: 0 auto 20px;
-    }
-    .price-line {
-      font-size: 1.3rem;
-      font-weight: 900;
-      margin-bottom: 24px;
-    }
-    .price-line del { color: #aaa; font-weight: 600; }
-    .price-line .price-now { color: var(--pink); font-size: 2rem; }
-
-    .btn-cta {
-      display: inline-block;
-      background: linear-gradient(135deg, #ff6fa3, #fc3a7b);
-      color: #fff;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: 1.1rem;
-      letter-spacing: .03em;
-      text-decoration: none;
-      padding: 18px 44px;
-      border-radius: 50px;
-      box-shadow: 0 6px 24px rgba(252,58,123,.45);
-      transition: transform .15s, box-shadow .15s;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-cta::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,.12);
-      opacity: 0;
-      transition: opacity .15s;
-    }
-    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(252,58,123,.55); }
-    .btn-cta:hover::after { opacity: 1; }
-
-    .cta-sub {
-      font-size: .85rem;
-      color: var(--blue);
-      text-decoration: underline;
-      margin-top: 12px;
-    }
-
-    .security-badges {
-      max-width: 600px;
-      margin: 28px auto 0;
-    }
-    .badges-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      background: #f5f5f5;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-size: .8rem;
-      font-weight: 700;
-      color: #444;
-    }
-    .badge svg { width: 20px; height: 20px; }
-
-    /* ─── TOPICS SECTION ─────────────────────────── */
-    .section-topics {
-      background: var(--grad1);
-      color: #fff;
-      padding: 72px 20px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .section-topics::before {
-      content: '';
-      position: absolute;
-      top: -2px; left: 0; right: 0;
-      height: 60px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 60'%3E%3Cpath fill='%23f8f0f5' d='M0,0 Q250,60 500,30 Q750,0 1000,50 L1000,0Z'/%3E%3C/svg%3E") center/cover no-repeat;
-    }
-    .section-topics .section-head {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-    .section-topics .eyebrow {
-      color: var(--sky);
-      font-size: .85rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .section-topics .section-title { color: #fff; }
-    .section-topics .section-title .pink { color: var(--pink-lt); }
-
-    .topic-card {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: var(--r);
-      padding: 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      backdrop-filter: blur(4px);
-      transition: background .2s;
-    }
-    .topic-card:hover { background: rgba(255,255,255,.14); }
-    .topic-icon {
-      flex-shrink: 0;
-      width: 44px; height: 44px;
-      background: var(--pink);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .topic-icon svg { width: 22px; height: 22px; fill: #fff; }
-    .topic-title {
-      font-weight: 800;
-      font-size: 1rem;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .topic-desc {
-      font-size: .88rem;
-      color: #b8d4f0;
-      line-height: 1.5;
-    }
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .topics-stats {
-      margin-top: 40px;
-      text-align: center;
-      background: rgba(255,255,255,.08);
-      border-radius: var(--r);
-      padding: 24px;
-      font-size: 1rem;
-      color: #cce8ff;
-    }
-    .topics-stats strong { color: #fff; font-size: 1.2rem; }
-
-    /* ─── FOR WHOM ───────────────────────────────── */
-    .section-whom { background: #fff; }
-    .section-whom .section-head { margin-bottom: 48px; }
-
-    .whom-list { list-style: none; }
-    .whom-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 14px 0;
-      border-bottom: 1px solid #f0e4ec;
-      font-size: 1rem;
-    }
-    .whom-list li:last-child { border-bottom: none; }
-    .whom-arrow {
-      flex-shrink: 0;
-      width: 28px; height: 28px;
-      background: linear-gradient(135deg, #fc3a7b, #ff6fa3);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 2px;
-    }
-    .whom-arrow svg { width: 13px; height: 13px; fill: #fff; }
-
-    .conclusion-box {
-      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
-      border-radius: var(--r);
-      padding: 28px;
-      margin-top: 32px;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* ─── WHY SPECIAL ────────────────────────────── */
-    .section-why {
-      background: var(--off);
-    }
-    .why-box {
-      background: #fff;
-      border-radius: var(--r);
-      padding: 32px;
-      box-shadow: var(--shadow);
-    }
-    .why-box .sky-lead {
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-
-    /* ─── BONUSES ────────────────────────────────── */
-    .section-bonuses { background: #fff; }
-    .bonus-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .bonus-header .eyebrow {
-      color: var(--pink);
-      font-weight: 800;
-      font-size: .85rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .bonus-card {
-      background: var(--off);
-      border-radius: var(--r);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0;
-      margin-bottom: 32px;
-      box-shadow: 0 4px 16px rgba(0,0,0,.07);
-      transition: box-shadow .2s;
-    }
-    .bonus-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.12); }
-    @media(max-width:600px){ .bonus-card { grid-template-columns: 1fr; } }
-    .bonus-img-col {
-      background: var(--grad1);
-      display: flex; align-items: center; justify-content: center;
-      padding: 32px 20px;
-      min-height: 180px;
-    }
-    .bonus-img-col svg { width: 120px; height: auto; }
-    .bonus-content { padding: 28px; }
-    .bonus-tag {
-      display: inline-block;
-      background: var(--blue);
-      color: #fff;
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      border-radius: 50px;
-      padding: 3px 12px;
-      margin-bottom: 10px;
-    }
-    .bonus-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-    .bonus-desc { font-size: .95rem; color: #555; line-height: 1.7; }
-
-    .bundle-box {
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 16px;
-    }
-    .bundle-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 6px; }
-    .bundle-title .pink { color: var(--pink); font-size: 1.4rem; }
-
-    /* ─── GUARANTEE ──────────────────────────────── */
-    .section-guarantee {
-      background: linear-gradient(135deg, #1565c0 0%, #0e7cc4 100%);
-      color: #fff;
-      padding: 72px 20px;
-    }
-    .guarantee-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    @media(max-width:600px){ .guarantee-inner { grid-template-columns: 1fr; text-align: center; } }
-    .guarantee-badge { text-align: center; }
-    .guarantee-badge svg { width: 140px; height: auto; }
-    .guarantee-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-    }
-    .guarantee-text { font-size: .98rem; line-height: 1.8; color: #c8e8ff; }
-    .guarantee-text strong { color: #fff; }
-
-    /* ─── FAQ ────────────────────────────────────── */
-    .section-faq { background: var(--off); padding: 72px 20px; }
-    .faq-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--dark);
-      margin-bottom: 40px;
-    }
-    .faq-item {
-      background: #fff;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,.06);
-    }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 20px 24px;
-      text-align: left;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--dark);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .faq-question .arrow {
-      flex-shrink: 0;
-      width: 24px; height: 24px;
-      background: var(--pink);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .25s;
-    }
-    .faq-question .arrow svg { width: 12px; height: 12px; fill: #fff; }
-    .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .3s ease, padding .3s ease;
-      padding: 0 24px;
-      font-size: .95rem;
-      color: #555;
-      line-height: 1.7;
-    }
-    .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
-
-    /* ─── FOOTER ─────────────────────────────────── */
-    .footer {
-      background: var(--dark);
-      color: #aaa;
-      text-align: center;
-      padding: 28px 20px;
-      font-size: .85rem;
-    }
-    .footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
-    .footer a:hover { color: #fff; }
-
-    /* ─── ILLUSTRATIONS ──────────────────────────── */
-    .illu-wrap {
-      display: flex; align-items: center; justify-content: center;
-      border-radius: var(--r);
-      overflow: hidden;
-      background: var(--off);
-      padding: 8px;
-    }
-    .illu-wrap svg { max-width: 100%; height: auto; }
-
-    /* ─── SECTION DIVIDER ─────────────────────────── */
-    .wave-divider { display: block; width: 100%; margin-bottom: -2px; }
-
-    /* ─── RESPONSIVE ──────────────────────────────── */
-    @media(max-width:680px){
-      .section { padding: 48px 16px; }
-      .hero { padding: 36px 16px 70px; }
-      .bonus-card .bonus-img-col { min-height: 140px; }
-      .section-topics { padding: 60px 16px 70px; }
-    }
-
-    /* ─── PIXEL ───────────────────────────────────── */
-    /* Meta Pixel – ID preservado do original */
-  </style>
-</head>
-<body>
-
-<!-- ██████ HERO ████████████████████████████████████ -->
-<header class="hero">
-  <div class="hero-logo">
-    <!-- LOGO SVG – recriado visualmente fiel ao original -->
-    <svg class="logo-svg" viewBox="0 0 520 108" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cuidados com o Bebê">
-      <defs>
-        <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#56e2ff"/>
-          <stop offset="100%" stop-color="#10a5e0"/>
-        </linearGradient>
-        <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#fc3a7b"/>
-          <stop offset="100%" stop-color="#ff6fa3"/>
-        </linearGradient>
-      </defs>
-      <!-- heart icon -->
-      <path d="M48,54 C48,54 24,38 24,26 C24,18 30,12 38,14 C42,15 46,18 48,22 C50,18 54,15 58,14 C66,12 72,18 72,26 C72,38 48,54 48,54Z" fill="url(#lg2)"/>
-      <!-- baby silhouette -->
-      <ellipse cx="48" cy="74" rx="14" ry="16" fill="#fff" opacity=".9"/>
-      <circle cx="48" cy="56" r="9" fill="#fff" opacity=".9"/>
-      <!-- title text -->
-      <text x="88" y="45" font-family="'Nunito',sans-serif" font-weight="900" font-size="32" fill="url(#lg1)">CUIDADOS</text>
-      <text x="88" y="82" font-family="'Nunito',sans-serif" font-weight="900" font-size="32" fill="url(#lg2)">COM O BEBÊ</text>
-      <!-- tagline -->
-      <text x="88" y="100" font-family="'Nunito',sans-serif" font-weight="700" font-size="12" fill="#cce8ff" letter-spacing="2">GUIA COMPLETO PARA MAMÃES</text>
-    </svg>
-  </div>
-
-  <p class="hero-subtitle">
-    Esse Método Simples Está Ajudando Milhares De
-    <span class="sky">Mamães De Primeira Viagem</span> a
-    <span class="pink">Cuidar Do Seu Bebê</span>
-    Do Nascimento Até o Primeiro Ano De Vida…
-  </p>
-  <p class="hero-hint">(Use ainda hoje para ver seu bebê se desenvolver mais rápido)</p>
-  <p class="hero-cta-text">Dê o Play e Assista o Vídeo Abaixo.</p>
-
-  <div class="video-wrap">
-    <iframe
-      src="https://www.youtube.com/embed/vQNHsKGYKoY?rel=0"
-      title="Cuidados com o Bebê – Apresentação"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</header>
-
-<!-- ██████ EBOOK SECTION ██████████████████████████ -->
-<section class="section section-ebook">
-  <div class="inner">
-    <div class="two-col">
-      <!-- EBOOK ILLUSTRATION -->
-      <div class="illu-wrap">
-        <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" width="320">
-          <defs>
-            <linearGradient id="ebg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1565c0"/>
-              <stop offset="100%" stop-color="#0d47a1"/>
-            </linearGradient>
-          </defs>
-          <!-- book body -->
-          <rect x="30" y="20" width="240" height="320" rx="12" fill="url(#ebg)"/>
-          <rect x="30" y="20" width="18" height="320" rx="6" fill="#0a3880"/>
-          <!-- cover art: mother & baby -->
-          <ellipse cx="150" cy="140" rx="50" ry="50" fill="#e3f2fd" opacity=".2"/>
-          <!-- mom -->
-          <circle cx="130" cy="100" r="24" fill="#ffccbc"/>
-          <path d="M106,180 Q108,130 130,125 Q152,120 154,180Z" fill="#fc3a7b"/>
-          <!-- baby -->
-          <circle cx="162" cy="148" r="16" fill="#ffccbc"/>
-          <ellipse cx="162" cy="172" rx="14" ry="12" fill="#fff"/>
-          <!-- heart -->
-          <path d="M145,82 C145,82 138,76 138,71 C138,68 141,65 144,66 C145.5,66.5 147,68 148,70 C149,68 150.5,66.5 152,66 C155,65 158,68 158,71 C158,76 148,82 148,82Z" fill="#fc3a7b"/>
-          <!-- title on book -->
-          <text x="150" y="215" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="13" fill="#fff">COMO CUIDAR</text>
-          <text x="150" y="233" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="13" fill="#56e2ff">DE UM BEBÊ</text>
-          <text x="150" y="255" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="700" font-size="10" fill="#90caf9">Guia Passo a Passo</text>
-          <!-- spine label -->
-          <text x="39" y="200" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="700" font-size="9" fill="#90caf9" transform="rotate(-90,39,200)">CUIDADOS COM O BEBÊ</text>
-          <!-- bottom badge -->
-          <rect x="80" y="290" width="140" height="30" rx="15" fill="#fc3a7b"/>
-          <text x="150" y="310" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">83 PÁGINAS · 10.658 PALAVRAS</text>
-        </svg>
-      </div>
-
-      <!-- CONTENT -->
-      <div>
-        <span class="tag-label">Esse método é para você mamãe que quer:</span>
-        <ul class="check-list" style="margin-top:16px">
-          <li><span class="icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cuidar do seu bebê da forma correta para que ele se desenvolva mais rápido.</li>
-          <li><span class="icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Recuperar a sua saúde mental, autoestima e confiança como mãe e mulher.</li>
-          <li><span class="icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Se livrar dos traumas, sofrimentos e culpas que a maternidade traz.</li>
-          <li><span class="icon"><svg viewBox="0 0 12 12"><path d="M1,6 L4.5,9.5 L11,2.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Se tornar uma ótima mãe, segura, que sabe EXATAMENTE tudo o que está fazendo…</li>
-        </ul>
-        <p style="margin-top:20px;font-weight:700;color:var(--pink)">E muito mais…</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ CTA #1 ██████████████████████████████████ -->
-<div class="cta-block">
-  <div class="inner">
-    <p class="cta-lead">Clique no botão abaixo…</p>
-    <p style="font-size:1rem;margin-bottom:10px;">e obtenha acesso imediato a esse Guia passo a passo.</p>
-    <p class="cta-desc">Ele vai te mostrar <span class="pink">como cuidar do seu bebê em todas as fases iniciais da maternidade</span>, te dando confiança para ser uma mãe melhor e ajudando o seu bebê a se desenvolver mais rápido.</p>
-    <p class="cta-delivery">O Ebook juntamente com os Bônus serão enviados no SEU E-MAIL em formato PDF após a confirmação do pagamento, e você poderá visualizar todo o conteúdo em seu celular, tablet, computador.</p>
-    <p style="font-size:1rem;margin-bottom:8px;">Hoje você tem acesso ao MÉTODO '<strong style="color:var(--blue)">Como Cuidar de Um Bebê</strong>' por…</p>
-    <p class="price-line"><strong>APENAS</strong> <del>R$ 97</del> <span class="price-now">R$ 27 HOJE!</span></p>
-    <a class="btn-cta" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
-      QUERO APRENDER A CUIDAR DO MEU BEBÊ
-    </a>
-    <p class="cta-sub">Clique no botão para comprar agora!</p>
-
-    <div class="security-badges">
-      <div class="badges-row">
-        <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7z" stroke="#2e7d32" stroke-width="2" fill="none"/><path d="M9 12l2 2 4-4" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Compra 100% Segura
-        </span>
-        <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#1565c0" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/></svg>
-          SSL Criptografado
-        </span>
-        <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fc3a7b" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#fc3a7b" stroke-width="2" stroke-linecap="round"/></svg>
-          Garantia de 7 dias
-        </span>
-        <span class="badge">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#ff6900" stroke-width="2"/><polyline points="9 22 9 12 15 12 15 22" stroke="#ff6900" stroke-width="2"/></svg>
-          Entrega Imediata
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ██████ TOPICS SECTION █████████████████████████ -->
-<section class="section-topics">
-  <div class="inner">
-    <div class="section-head">
-      <p class="eyebrow">Conteúdo do Guia</p>
-      <h2 class="section-title">Aqui estão os tópicos que você vai<br><span class="pink">encontrar dentro desse guia</span></h2>
-    </div>
-
-    <div class="two-col" style="margin-bottom:40px">
-      <!-- BABY ILLUSTRATION for topics -->
-      <div class="illu-wrap" style="background:rgba(255,255,255,.08)">
-        <svg viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg" width="280">
-          <!-- background glow -->
-          <circle cx="140" cy="160" r="120" fill="rgba(255,255,255,.05)"/>
-          <!-- baby in blanket -->
-          <ellipse cx="140" cy="240" rx="80" ry="60" fill="#fc3a7b" opacity=".8"/>
-          <ellipse cx="140" cy="220" rx="70" ry="55" fill="#ff8fab"/>
-          <!-- head -->
-          <circle cx="140" cy="145" r="60" fill="#ffccbc"/>
-          <!-- face -->
-          <circle cx="122" cy="140" r="7" fill="#333"/>
-          <circle cx="158" cy="140" r="7" fill="#333"/>
-          <circle cx="124" cy="138" r="3" fill="#fff"/>
-          <circle cx="160" cy="138" r="3" fill="#fff"/>
-          <!-- smile -->
-          <path d="M128,162 Q140,176 152,162" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- cheeks -->
-          <circle cx="112" cy="155" r="10" fill="#fc3a7b" opacity=".3"/>
-          <circle cx="168" cy="155" r="10" fill="#fc3a7b" opacity=".3"/>
-          <!-- hair -->
-          <ellipse cx="140" cy="90" rx="50" ry="20" fill="#8d6e63"/>
-          <ellipse cx="100" cy="100" rx="18" ry="24" fill="#8d6e63"/>
-          <ellipse cx="180" cy="100" rx="18" ry="24" fill="#8d6e63"/>
-          <!-- hands -->
-          <circle cx="68" cy="230" r="18" fill="#ffccbc"/>
-          <circle cx="212" cy="230" r="18" fill="#ffccbc"/>
-          <!-- stars -->
-          <text x="40" y="60" font-size="20" fill="#fff" opacity=".6">✨</text>
-          <text x="220" y="80" font-size="16" fill="#fff" opacity=".5">⭐</text>
-          <text x="200" y="40" font-size="14" fill="#fc3a7b" opacity=".8">♥</text>
-        </svg>
-      </div>
-
-      <div class="topics-grid" style="grid-template-columns:1fr">
-        <div class="topic-card">
-          <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div>
-          <div>
-            <p class="topic-title">Segredo do Sono Tranquilo</p>
-            <p class="topic-desc">Técnica para fazer o seu bebê dormir a noite toda — use sempre que quiser que o bebê descanse.</p>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 3C6.95 3 3 6.95 3 12s3.95 9 9 9 9-3.95 9-9-3.95-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/><path d="M12 8v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg></div>
-          <div>
-            <p class="topic-title">Amamentação Sem Dor</p>
-            <p class="topic-desc">Passo a passo correto para amamentar — sem empedramentos, rachaduras ou dores.</p>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg></div>
-          <div>
-            <p class="topic-title">Intuição de Mãe</p>
-            <p class="topic-desc">Como identificar se o bebê chora por fome, sono, medo ou qualquer outra necessidade.</p>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-          <div>
-            <p class="topic-title">Vínculo Profundo</p>
-            <p class="topic-desc">Como criar uma conexão de amor para que o bebê cresça seguro e confiante.</p>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
-          <div>
-            <p class="topic-title">Saúde do Bebê</p>
-            <p class="topic-desc">Como identificar se ele está bem ou doente, suas causas e os segredinhos de mãe experiente.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="topics-stats">
-      Se colocado em prática o quanto antes, mais rápido você vai aprender a cuidar do seu bebê do jeito certo.<br>
-      <strong>Condensamos todas as informações valiosas em 10.658 palavras e 83 páginas.</strong>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ FOR WHOM ████████████████████████████████ -->
-<section class="section section-whom">
-  <div class="inner">
-    <div class="section-head">
-      <span class="tag-label">Quem precisa deste…</span>
-      <h2 class="section-title" style="margin-top:12px">Guia passo a passo?</h2>
-      <p style="font-size:1rem;color:#666">Se você é mamãe e está passando por pelo menos uma das situações abaixo, você precisa.</p>
-    </div>
-
-    <div class="two-col">
-      <!-- ILLUSTRATION -->
-      <div class="illu-wrap">
-        <svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg" width="280">
-          <!-- background -->
-          <circle cx="140" cy="150" r="130" fill="#fce4ec" opacity=".5"/>
-          <!-- chair/couch base -->
-          <rect x="30" y="220" width="220" height="30" rx="10" fill="#f48fb1"/>
-          <rect x="20" y="180" width="240" height="50" rx="12" fill="#f06292"/>
-          <!-- mom figure -->
-          <circle cx="100" cy="140" r="36" fill="#ffccbc"/>
-          <!-- hair -->
-          <ellipse cx="100" cy="112" rx="32" ry="18" fill="#5d4037"/>
-          <ellipse cx="70" cy="120" rx="14" ry="20" fill="#5d4037"/>
-          <!-- eyes -->
-          <circle cx="88" cy="136" r="5" fill="#333"/>
-          <circle cx="112" cy="136" r="5" fill="#333"/>
-          <circle cx="90" cy="134" r="2" fill="#fff"/>
-          <circle cx="114" cy="134" r="2" fill="#fff"/>
-          <!-- smile -->
-          <path d="M90,152 Q100,162 110,152" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- body -->
-          <ellipse cx="100" cy="195" rx="36" ry="32" fill="#e91e8c" opacity=".8"/>
-          <!-- baby on lap -->
-          <ellipse cx="160" cy="200" rx="36" ry="24" fill="#ffccbc"/>
-          <circle cx="190" cy="186" r="20" fill="#ffccbc"/>
-          <circle cx="183" cy="180" r="4" fill="#333"/>
-          <circle cx="196" cy="180" r="4" fill="#333"/>
-          <path d="M182,190 Q189,196 196,190" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- hearts floating -->
-          <text x="220" y="90" font-size="18" fill="#fc3a7b" opacity=".8">♥</text>
-          <text x="60" y="80" font-size="14" fill="#ff6fa3" opacity=".7">♥</text>
-          <text x="200" y="130" font-size="12" fill="#fc3a7b" opacity=".6">♥</text>
-          <!-- stars -->
-          <text x="40" y="160" font-size="16" fill="#ffd54f" opacity=".8">★</text>
-          <text x="230" y="155" font-size="14" fill="#ffd54f" opacity=".7">★</text>
-        </svg>
-      </div>
-
-      <!-- LIST -->
-      <div>
-        <ul class="whom-list">
-          <li>
-            <span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>
-            Vai ser mãe e está muito insegura por não saber como cuidar do seu bebê;
-          </li>
-          <li>
-            <span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>
-            Está morta de cansada porque tem que levantar toda madrugada para fazer seu bebê dormir;
-          </li>
-          <li>
-            <span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>
-            Não sabe porque seu bebê chora tanto;
-          </li>
-          <li>
-            <span class="whom-arrow"><svg viewBox="0 0 12 12"><path d="M4,2 L10,6 L4,10Z" fill="#fff"/></svg></span>
-            Está ficando depressiva por estar perdendo o controle da situação nessa fase inicial da maternidade;
-          </li>
-        </ul>
-
-        <div class="conclusion-box">
-          <strong>Isso parece ser exatamente o que Você está Passando?</strong>
-          <br><br>
-          Se você se identificou com pelo menos uma das situações acima, você está prestes a ter acesso à forma mais fácil, didática e comprovada de aprender a cuidar do seu bebê do jeito certo em todas as fases iniciais da maternidade.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ WHY SPECIAL ████████████████████████████ -->
-<section class="section section-why">
-  <div class="inner">
-    <h2 class="section-title" style="text-align:center;margin-bottom:40px">
-      O que faz este método ser tão especial<br><span class="pink">comparado aos outros disponíveis no mercado?</span>
-    </h2>
-
-    <div class="two-col">
-      <!-- ILLUSTRATION: mom thinking -->
-      <div class="illu-wrap">
-        <svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg" width="280">
-          <defs>
-            <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#e3f2fd"/>
-              <stop offset="100%" stop-color="#bbdefb"/>
-            </linearGradient>
-          </defs>
-          <circle cx="140" cy="150" r="130" fill="url(#bg2)"/>
-          <!-- books stack -->
-          <rect x="60" y="240" width="160" height="16" rx="4" fill="#1565c0"/>
-          <rect x="70" y="224" width="150" height="16" rx="4" fill="#1976d2"/>
-          <rect x="65" y="208" width="155" height="16" rx="4" fill="#2196f3"/>
-          <!-- woman figure -->
-          <circle cx="140" cy="120" r="40" fill="#ffccbc"/>
-          <!-- hair -->
-          <path d="M105,105 Q115,75 140,78 Q165,75 175,105 Q172,90 140,88 Q108,90 105,105Z" fill="#4a148c"/>
-          <!-- eyes -->
-          <circle cx="127" cy="116" r="5.5" fill="#333"/>
-          <circle cx="153" cy="116" r="5.5" fill="#333"/>
-          <circle cx="129" cy="114" r="2" fill="#fff"/>
-          <circle cx="155" cy="114" r="2" fill="#fff"/>
-          <!-- expression: thinking -->
-          <path d="M130,134 Q140,140 150,134" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- thought bubble -->
-          <circle cx="175" cy="75" r="6" fill="#fff" stroke="#1565c0" stroke-width="1.5"/>
-          <circle cx="190" cy="62" r="9" fill="#fff" stroke="#1565c0" stroke-width="1.5"/>
-          <circle cx="210" cy="50" r="13" fill="#fff" stroke="#1565c0" stroke-width="1.5"/>
-          <text x="205" y="55" text-anchor="middle" font-size="16" fill="#fc3a7b">♥</text>
-          <!-- body -->
-          <ellipse cx="140" cy="188" rx="40" ry="36" fill="#ce93d8"/>
-          <!-- price tag illustration -->
-          <rect x="55" y="155" width="60" height="30" rx="6" fill="#fc3a7b"/>
-          <text x="85" y="174" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="12" fill="#fff">R$ 27</text>
-          <text x="200" y="174" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#1565c0">vs. R$ 500+</text>
-          <text x="200" y="186" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#666">em consultorias</text>
-        </svg>
-      </div>
-
-      <div class="why-box">
-        <p class="sky-lead">Considere o seguinte…</p>
-        <p style="font-size:1rem;line-height:1.8;color:#444">
-          Muitos investem significativas quantias em cursos e consultorias, buscando desvendar os mistérios da maternidade e do cuidado infantil. No entanto, você tem a oportunidade de adquirir esse conhecimento essencial por uma fração mínima do custo que gastaria com esses especialistas — permitindo que você comece a aplicar estas técnicas valiosas <strong>imediatamente</strong>, sem comprometer seu orçamento familiar.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ CTA #2 ██████████████████████████████████ -->
-<div class="cta-block" style="background:var(--off)">
-  <div class="inner">
-    <p class="cta-lead">Clique no botão abaixo…</p>
-    <p style="font-size:1rem;margin-bottom:10px;">e obtenha acesso imediato a esse Guia passo a passo!</p>
-    <p class="cta-desc">Hoje você tem acesso ao MÉTODO '<span class="pink">Como Cuidar de um Bebê</span>' por…</p>
-    <p class="price-line"><strong>APENAS</strong> <del>R$ 97</del> <span class="price-now">R$ 27 HOJE!</span></p>
-    <a class="btn-cta" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
-      QUERO APRENDER A CUIDAR DO MEU BEBÊ
-    </a>
-    <p class="cta-sub">Clique no botão para comprar agora!</p>
-    <div class="security-badges">
-      <div class="badges-row">
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7z" stroke="#2e7d32" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Compra 100% Segura</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#1565c0" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/></svg>SSL Criptografado</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fc3a7b" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#fc3a7b" stroke-width="2" stroke-linecap="round"/></svg>Garantia de 7 dias</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ██████ BONUSES ████████████████████████████████ -->
-<section class="section section-bonuses">
-  <div class="inner">
-    <div class="bonus-header">
-      <p class="eyebrow">Bônus Exclusivos</p>
-      <h2 class="section-title">
-        Se você tomar a sábia decisão de
-        <span class="pink">aproveitar essa oportunidade agora</span>,
-        você também receberá esses…
-      </h2>
-      <p class="section-title" style="font-size:2rem;margin-top:4px">Bônus Extras</p>
-    </div>
-
-    <!-- BONUS 1 -->
-    <div class="bonus-card">
-      <div class="bonus-img-col">
-        <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
-          <!-- clipboard -->
-          <rect x="20" y="30" width="120" height="140" rx="10" fill="#fff" opacity=".9"/>
-          <rect x="55" y="20" width="50" height="20" rx="8" fill="#b0bec5"/>
-          <rect x="60" y="22" width="40" height="16" rx="6" fill="#90a4ae"/>
-          <!-- checklist items -->
-          <rect x="38" y="60" width="14" height="14" rx="3" fill="#4caf50"/>
-          <path d="M40,67 L43,70 L50,63" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <rect x="60" y="62" width="70" height="10" rx="4" fill="#e0e0e0"/>
-          <rect x="38" y="82" width="14" height="14" rx="3" fill="#4caf50"/>
-          <path d="M40,89 L43,92 L50,85" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <rect x="60" y="84" width="55" height="10" rx="4" fill="#e0e0e0"/>
-          <rect x="38" y="104" width="14" height="14" rx="3" fill="#e0e0e0"/>
-          <rect x="60" y="106" width="65" height="10" rx="4" fill="#e0e0e0"/>
-          <rect x="38" y="126" width="14" height="14" rx="3" fill="#e0e0e0"/>
-          <rect x="60" y="128" width="50" height="10" rx="4" fill="#e0e0e0"/>
-          <!-- title at bottom -->
-          <text x="80" y="158" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">BÔNUS #1</text>
-        </svg>
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Bônus #1</span>
-        <h3 class="bonus-title">Checklist Completo</h3>
-        <p class="bonus-desc">Este checklist exclusivo ajuda a simplificar o aprendizado, facilitando ainda mais a compreensão de cada etapa contida no guia principal, garantindo que você não deixe passar nenhum detalhe importante no desenvolvimento e bem-estar do seu bebê. Com esta ferramenta prática você estará pronta para implementar o que aprendeu de maneira eficaz, acelerando seus resultados.</p>
-      </div>
-    </div>
-
-    <!-- BONUS 2 -->
-    <div class="bonus-card">
-      <div class="bonus-img-col">
-        <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
-          <!-- mind map -->
-          <circle cx="80" cy="90" r="22" fill="#fc3a7b"/>
-          <text x="80" y="95" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">BEBÊ</text>
-          <!-- branches -->
-          <line x1="80" y1="68" x2="80" y2="42" stroke="#fff" stroke-width="2"/>
-          <circle cx="80" cy="34" r="16" fill="#fff" opacity=".85"/>
-          <text x="80" y="38" text-anchor="middle" font-size="10" fill="#1565c0" font-family="'Nunito',sans-serif" font-weight="700">Sono</text>
-
-          <line x1="102" y1="80" x2="126" y2="60" stroke="#fff" stroke-width="2"/>
-          <circle cx="134" cy="54" r="16" fill="#fff" opacity=".85"/>
-          <text x="134" y="58" text-anchor="middle" font-size="9" fill="#1565c0" font-family="'Nunito',sans-serif" font-weight="700">Saúde</text>
-
-          <line x1="102" y1="100" x2="128" y2="112" stroke="#fff" stroke-width="2"/>
-          <circle cx="136" cy="118" r="16" fill="#fff" opacity=".85"/>
-          <text x="136" y="122" text-anchor="middle" font-size="9" fill="#1565c0" font-family="'Nunito',sans-serif" font-weight="700">Leite</text>
-
-          <line x1="80" y1="112" x2="80" y2="138" stroke="#fff" stroke-width="2"/>
-          <circle cx="80" cy="146" r="16" fill="#fff" opacity=".85"/>
-          <text x="80" y="150" text-anchor="middle" font-size="9" fill="#1565c0" font-family="'Nunito',sans-serif" font-weight="700">Vínculo</text>
-
-          <line x1="58" y1="100" x2="32" y2="112" stroke="#fff" stroke-width="2"/>
-          <circle cx="24" cy="118" r="16" fill="#fff" opacity=".85"/>
-          <text x="24" y="122" text-anchor="middle" font-size="9" fill="#1565c0" font-family="'Nunito',sans-serif" font-weight="700">Banho</text>
-
-          <line x1="58" y1="80" x2="32" y2="62" stroke="#fff" stroke-width="2"/>
-          <circle cx="24" cy="54" r="16" fill="#fff" opacity=".85"/>
-          <text x="24" y="58" text-anchor="middle" font-size="9" fill="#1565c0" font-family="'Nunito',sans-serif" font-weight="700">Choro</text>
-          <text x="80" y="168" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">BÔNUS #2</text>
-        </svg>
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Bônus #2</span>
-        <h3 class="bonus-title">Mapa Mental</h3>
-        <p class="bonus-desc">Perfeito para quem aprende visualmente. O mapa mental incluído facilita a visualização do caminho para uma maternidade confiante. Ele mapeia de forma clara e visual as ideias principais, tornando-se um guia eficaz para entender e colocar em prática as estratégias de cuidado com o bebê.</p>
-      </div>
-    </div>
-
-    <!-- BONUS 3 -->
-    <div class="bonus-card">
-      <div class="bonus-img-col">
-        <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
-          <!-- bowl -->
-          <ellipse cx="80" cy="120" rx="52" ry="20" fill="#ffa726"/>
-          <path d="M28,115 Q28,155 80,162 Q132,155 132,115Z" fill="#ff8f00"/>
-          <!-- spoon -->
-          <ellipse cx="80" cy="75" rx="14" ry="8" fill="#ffe082"/>
-          <rect x="77" y="83" width="6" height="32" rx="3" fill="#ffe082"/>
-          <!-- steam -->
-          <path d="M65,60 Q62,50 65,42 Q68,34 65,26" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
-          <path d="M80,58 Q77,48 80,40 Q83,32 80,24" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
-          <path d="M95,60 Q92,50 95,42 Q98,34 95,26" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
-          <!-- veggies in bowl -->
-          <circle cx="65" cy="118" r="8" fill="#66bb6a"/>
-          <circle cx="85" cy="120" r="7" fill="#f57f17"/>
-          <circle cx="75" cy="112" r="6" fill="#ef9a9a"/>
-          <text x="80" y="163" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">BÔNUS #3</text>
-        </svg>
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Bônus #3</span>
-        <h3 class="bonus-title">Como Fazer Papinha</h3>
-        <p class="bonus-desc">Esse guia irá te ajudar a introduzir a papinha na alimentação do seu bebê quando for a hora certa. Vou te mostrar os sinais que um bebê dá para saber quando você deve começar essa transição do leite para os alimentos. Também vou te revelar quais os melhores alimentos para dar a ele no início — e várias receitas deliciosas e baratas que você pode fazer em apenas 2 minutinhos!</p>
-      </div>
-    </div>
-
-    <!-- BONUS 4 -->
-    <div class="bonus-card">
-      <div class="bonus-img-col">
-        <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
-          <!-- heart growing -->
-          <path d="M80,130 C80,130 30,95 30,65 C30,48 42,36 56,40 C63,42 72,48 80,56 C88,48 97,42 104,40 C118,36 130,48 130,65 C130,95 80,130 80,130Z" fill="#fc3a7b" opacity=".3"/>
-          <path d="M80,115 C80,115 42,88 42,66 C42,54 51,44 62,47 C68,49 75,54 80,61 C85,54 92,49 98,47 C109,44 118,54 118,66 C118,88 80,115 80,115Z" fill="#fc3a7b" opacity=".6"/>
-          <path d="M80,100 C80,100 54,82 54,67 C54,58 61,52 68,54 C73,56 77,60 80,65 C83,60 87,56 92,54 C99,52 106,58 106,67 C106,82 80,100 80,100Z" fill="#fc3a7b"/>
-          <!-- zen/peace symbol -->
-          <circle cx="80" cy="38" r="18" fill="#fff" opacity=".9" stroke="#1565c0" stroke-width="2"/>
-          <text x="80" y="44" text-anchor="middle" font-size="18" fill="#1565c0">☯</text>
-          <text x="80" y="163" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">BÔNUS #4</text>
-        </svg>
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Bônus #4</span>
-        <h3 class="bonus-title">Como Ser Mais Paciente</h3>
-        <p class="bonus-desc">Sabemos que a maternidade é difícil, principalmente no início. Mas como não deixar isso atrapalhar a nossa conexão de amor e carinho com o bebê? Existem várias técnicas e dicas para isso… e vou te mostrar em detalhes neste guia. Assim você vai se tornar uma mãe mais paciente, menos estressada e mais amorosa com o seu bebê.</p>
-      </div>
-    </div>
-
-    <!-- BUNDLE BOX -->
-    <div class="bundle-box">
-      <p class="bundle-title">Você recebe <span class="pink">tudo isso…</span></p>
-      <p style="font-size:1rem;color:#666;margin-bottom:28px">Se você agir agora!</p>
-      <!-- bundle illustration -->
-      <div style="max-width:400px;margin:0 auto 28px">
-        <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" width="100%">
-          <!-- main ebook -->
-          <rect x="160" y="10" width="100" height="130" rx="8" fill="#1565c0"/>
-          <rect x="160" y="10" width="14" height="130" rx="4" fill="#0d3a8c"/>
-          <text x="210" y="75" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#fff">GUIA</text>
-          <text x="210" y="90" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="10" fill="#56e2ff">PRINCIPAL</text>
-          <!-- bonus books -->
-          <rect x="48" y="30" width="80" height="110" rx="6" fill="#fc3a7b" opacity=".9"/>
-          <text x="88" y="93" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="9" fill="#fff">BÔNUS #1</text>
-          <text x="88" y="106" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="800" font-size="8" fill="#fce4ec">Checklist</text>
-
-          <rect x="292" y="30" width="80" height="110" rx="6" fill="#e91e8c" opacity=".9"/>
-          <text x="332" y="93" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="9" fill="#fff">BÔNUS #2</text>
-          <text x="332" y="106" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="800" font-size="8" fill="#fce4ec">Mapa Mental</text>
-
-          <rect x="5" y="50" width="65" height="90" rx="5" fill="#9c27b0" opacity=".8"/>
-          <text x="37" y="100" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="#fff">BÔNUS #3</text>
-
-          <rect x="350" y="50" width="65" height="90" rx="5" fill="#7b1fa2" opacity=".8"/>
-          <text x="382" y="100" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="#fff">BÔNUS #4</text>
-
-          <!-- star burst -->
-          <polygon points="210,145 213,156 224,156 215,163 218,174 210,167 202,174 205,163 196,156 207,156" fill="#ffd54f"/>
-          <text x="210" y="195" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="13" fill="#fc3a7b">TUDO POR APENAS R$ 27!</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ CTA #3 ██████████████████████████████████ -->
-<div class="cta-block">
-  <div class="inner">
-    <p class="cta-lead">Clique no botão abaixo…</p>
-    <p style="font-size:1rem;margin-bottom:10px;">e obtenha acesso imediato a esse Guia passo a passo!</p>
-    <p class="cta-desc">Hoje você tem acesso ao MÉTODO '<span class="pink">Como Cuidar de um Bebê</span>' por…</p>
-    <p class="price-line"><strong>APENAS</strong> <del>R$ 97</del> <span class="price-now">R$ 27 HOJE!</span></p>
-    <a class="btn-cta" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
-      QUERO APRENDER A CUIDAR DO MEU BEBÊ
-    </a>
-    <p class="cta-sub">Clique no botão para comprar agora!</p>
-    <div class="security-badges">
-      <div class="badges-row">
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7z" stroke="#2e7d32" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Compra 100% Segura</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#1565c0" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/></svg>SSL Criptografado</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fc3a7b" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#fc3a7b" stroke-width="2" stroke-linecap="round"/></svg>Garantia de 7 dias</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ██████ GUARANTEE ██████████████████████████████ -->
-<section class="section-guarantee">
-  <div class="guarantee-inner">
-    <div class="guarantee-badge">
-      <!-- 7-day guarantee badge SVG -->
-      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" width="140">
-        <!-- shield -->
-        <path d="M80,10 L140,35 L140,80 C140,118 80,148 80,148 C80,148 20,118 20,80 L20,35 Z" fill="#ffd54f"/>
-        <path d="M80,22 L130,44 L130,80 C130,112 80,138 80,138 C80,138 30,112 30,80 L30,44 Z" fill="#f9a825"/>
-        <!-- text -->
-        <text x="80" y="60" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">GARANTIA</text>
-        <text x="80" y="82" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="32" fill="#fff">7</text>
-        <text x="80" y="100" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="12" fill="#fff">DIAS</text>
-        <text x="80" y="118" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="800" font-size="9" fill="#fff3e0">SATISFAÇÃO</text>
-        <text x="80" y="130" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="800" font-size="9" fill="#fff3e0">GARANTIDA</text>
-      </svg>
-    </div>
-    <div>
-      <h2 class="guarantee-title">Você está 100% seguro com nossa Garantia de 7 dias</h2>
-      <p class="guarantee-text">
-        <strong>Estou convencida da qualidade excepcional do meu Guia: "Como Cuidar de Um Bebê".</strong><br><br>
-        No entanto, entendo que a verdadeira avaliação vem através da sua experiência pessoal, aplicando os ensinamentos contidos no guia. Por isso, ofereço uma <strong>garantia incondicional de 7 dias</strong>.<br><br>
-        Se, por qualquer motivo, você não se encontrar totalmente satisfeita com o valor que este guia promete, estou preparada para devolver integralmente seu investimento, sem questionamentos. Nosso objetivo é sua satisfação e sucesso, nada menos.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ CTA FINAL ███████████████████████████████ -->
-<div class="cta-block" style="background:var(--off)">
-  <div class="inner">
-    <p class="cta-lead">Clique no botão abaixo…</p>
-    <p style="font-size:1rem;margin-bottom:10px;">e obtenha acesso imediato a esse Guia passo a passo!</p>
-    <p class="cta-desc">Hoje você tem acesso ao MÉTODO '<span class="pink">Como Cuidar de um Bebê</span>' por…</p>
-    <p class="price-line"><strong>APENAS</strong> <del>R$ 97</del> <span class="price-now">R$ 27 HOJE!</span></p>
-    <a class="btn-cta" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
-      QUERO APRENDER A CUIDAR DO MEU BEBÊ
-    </a>
-    <p class="cta-sub">Clique no botão para comprar agora!</p>
-    <div class="security-badges">
-      <div class="badges-row">
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7z" stroke="#2e7d32" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Compra 100% Segura</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#1565c0" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/></svg>SSL Criptografado</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fc3a7b" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#fc3a7b" stroke-width="2" stroke-linecap="round"/></svg>Garantia de 7 dias</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ██████ FAQ ████████████████████████████████████ -->
-<section class="section-faq">
-  <div class="inner" style="max-width:720px">
-    <h2 class="faq-title">Perguntas Frequentes</h2>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        O Que Está Sendo Oferecido Aqui?
-        <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="faq-answer">Estamos oferecendo o Método "Como Cuidar de um Bebê", um guia passo a passo projetado para ajudar mamães de primeira viagem a cuidar de seus bebês desde o nascimento até o primeiro ano de vida. Inclui estratégias eficazes para o desenvolvimento saudável do bebê, além de bônus exclusivos para complementar o aprendizado.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Este Método é Para Quem?
-        <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="faq-answer">É ideal para mamães de primeira viagem que desejam aprender a cuidar de seus bebês de maneira correta, recuperar a saúde mental, aumentar a autoestima e a confiança, e eliminar traumas e culpas associados à maternidade. Também é para aquelas que querem estabelecer um vínculo profundo com seu bebê.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Em Quanto Tempo Posso Esperar Resultados?
-        <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="faq-answer">Os resultados podem variar, mas muitas mães começam a ver mudanças positivas na rotina de cuidado com seus bebês imediatamente após aplicar as técnicas do guia. A velocidade dos resultados depende da consistência e do comprometimento em seguir as orientações do método.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Como Acesso e Recebo o Guia Imediatamente?
-        <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="faq-answer">Após a confirmação do pagamento, você receberá o guia "Como Cuidar de um Bebê" e todos os bônus diretamente no seu e-mail em formato PDF. Isso permite que você acesse o conteúdo em qualquer dispositivo, como celular, tablet ou computador, a qualquer hora e lugar.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Por Que Devo Adquirir Este Guia?
-        <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="faq-answer">Este guia oferece uma oportunidade única de aprender com um método comprovado, economizando tempo e dinheiro que você poderia gastar em cursos e consultorias. Com este guia, você ganha acesso a conhecimentos essenciais para ser uma mãe confiante e preparada, a um preço acessível.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        E Se Eu Não Ficar Satisfeita?
-        <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2,4 L6,8 L10,4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="faq-answer">Sua satisfação é nossa prioridade. Oferecemos uma garantia incondicional de 7 dias. Se você não estiver 100% satisfeita, basta solicitar o reembolso dentro deste período para receber todo o seu investimento de volta, sem perguntas.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ██████ FOOTER ██████████████████████████████████ -->
-<footer class="footer">
-  <p>© COMO CUIDAR DE UM BEBÊ | TODOS OS DIREITOS RESERVADOS</p>
-  <p style="margin-top:8px">
-    <a href="#">Contato</a>
-    <a href="#">Política de Privacidade</a>
-    <a href="#">Termos de Uso</a>
-  </p>
-</footer>
-
-<!-- ██████ SCRIPTS ████████████████████████████████ -->
-<!-- Meta Pixel – ID: 1176095947934147 -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1176095947934147');
-fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1176095947934147&ev=PageView&noscript=1" alt=""></noscript>
-
-<!-- FAQ accordion -->
-<script>
-document.querySelectorAll('.faq-question').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var item = this.closest('.faq-item');
-    var open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
-    if(!open) item.classList.add('open');
-  });
-});
-</script>
-</body>
-</html>
->>>>>>> b4cc5bb34b5d9527aee2b254352cf1b9e8603a7f
