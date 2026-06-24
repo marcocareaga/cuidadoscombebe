@@ -191,6 +191,8 @@
       font-size:.62rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;font-weight:700;
     }
     .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .desktop-only{display:block}
+    .mobile-only{display:none}
     @media(max-width:900px){
       .hero{min-height:auto;margin-top:42px}
       .hero-nav{padding:12px 0 16px}
@@ -206,6 +208,10 @@
       .hero-sub{font-size:.88rem;margin-bottom:14px;line-height:1.6;color:rgba(255,255,255,.8);font-weight:400}
       .hero-cta-group{gap:10px}
       .hero-cta-group .btn{padding:14px 24px;font-size:.82rem}
+      .logo{font-size:1.6rem}
+      .hero-pill{display:none}
+      .desktop-only{display:none}
+      .mobile-only{display:block}
     }
     @media(max-width:400px){
       .hero h1{font-size:1.35rem;line-height:1.12}
@@ -245,11 +251,19 @@
 
     @media(max-width:400px){
       .btn{font-size:.78rem;padding:12px 22px;max-width:100%}
+      .sec-video{padding:28px 0}
+      .sec-problem{padding:32px 0}
+      .price-c::before{right:-20px;padding:4px 36px;font-size:.5rem}
+      .sec-social .sec-title{font-size:.95rem;white-space:nowrap}
     }
 
     /* ── SECTION HEADERS ── */
     .sec{padding:96px 0}
-    @media(max-width:768px){.sec{padding:56px 0}}
+    @media(max-width:768px){
+      .sec{padding:56px 0}
+      .sec-video{padding:36px 0}
+      .sec-problem{padding:40px 0}
+    }
     @media(max-width:400px){.sec{padding:44px 0}}
     .sec-tag{
       display:inline-block;color:var(--rose);font-size:.7rem;font-weight:800;
@@ -303,7 +317,7 @@
       margin-top:1px;font-size:13px;
     }
     .pain-cta{margin-top:24px}
-    @media(max-width:400px){.pain-cta{text-align:center}}
+    @media(max-width:400px){.pain-cta{text-align:center;margin-top:12px}}
 
     /* ── SOLUTION ── */
     .sec-solution{
@@ -433,6 +447,8 @@
       .cta-b .price del{font-size:1rem}
       .cta-b .pulse{display:block;margin-top:16px}
       .cta-b .pulse .btn{padding:12px 20px}
+      .cta-b p{white-space:nowrap;font-size:.9rem;overflow:hidden;text-overflow:ellipsis}
+      .cta-b p:first-child[style*="font-weight:700"]{font-size:.9rem}
     }
 
     /* ── PRICING ── */
@@ -732,7 +748,7 @@
 <section class="sec-problem">
   <div class="container">
     <div class="grid-2">
-      <div class="img-frame">
+      <div class="img-frame desktop-only">
         <img src="https://images.unsplash.com/photo-1773243086593-d36487e39a0b?auto=format&fit=crop&w=700&q=80" alt="Mão de adulto segurando a mão de um bebê recém-nascido" loading="lazy">
       </div>
       <div>
@@ -745,6 +761,9 @@
           <li><span class="pain-ico">😔</span>Você se sente insegura, culpada e sem confiança como mãe</li>
           <li><span class="pain-ico">💔</span>Você está perdendo o controle e isso afeta sua saúde mental</li>
         </ul>
+        <div class="img-frame mobile-only" style="margin:20px 0">
+          <img src="https://images.unsplash.com/photo-1773243086593-d36487e39a0b?auto=format&fit=crop&w=700&q=80" alt="Mão de adulto segurando a mão de um bebê recém-nascido" loading="lazy">
+        </div>
         <div class="pain-cta">
           <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">QUERO MUDAR ESSA REALIDADE</a>
         </div>
