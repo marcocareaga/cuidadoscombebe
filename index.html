@@ -187,13 +187,13 @@
       .hero-sub{font-size:.92rem;margin-bottom:12px;line-height:1.65;color:rgba(255,255,255,.8);font-weight:400}
       .hero-tag{font-size:.65rem;padding:5px 14px;margin-bottom:14px}
       .hero-cta-group{gap:10px}
-      .hero-cta-group .btn{padding:14px 24px;font-size:.88rem}
+      .hero-cta-group .btn{padding:14px 24px;font-size:.82rem}
     }
     @media(max-width:400px){
       .hero h1{font-size:1.35rem;line-height:1.12}
       .hero-sub{font-size:.85rem}
       .hero-cta-group{flex-direction:column;align-items:stretch}
-      .hero-cta-group .btn{justify-content:center}
+      .hero-cta-group .btn{justify-content:center;padding:12px 20px}
       .hero-glass .hero-stats{gap:12px;justify-content:center}
     }
 
@@ -224,6 +224,10 @@
       border:1.5px solid rgba(255,255,255,.2);
     }
     .btn-outline:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3);box-shadow:none}
+
+    @media(max-width:400px){
+      .btn{font-size:.78rem;padding:12px 22px;max-width:100%}
+    }
 
     /* ── SECTION HEADERS ── */
     .sec{padding:96px 0}
@@ -281,6 +285,7 @@
       margin-top:1px;font-size:13px;
     }
     .pain-cta{margin-top:24px}
+    @media(max-width:400px){.pain-cta{text-align:center}}
 
     /* ── SOLUTION ── */
     .sec-solution{
@@ -387,6 +392,7 @@
       .t-i svg{width:22px;height:22px}
       .t-t{font-size:.88rem}
       .t-d{font-size:.75rem}
+      .t-cta .btn{padding:12px 22px}
     }
 
     /* ── SOCIAL ── */
@@ -423,7 +429,8 @@
       .cta-b{padding:40px 16px}
       .cta-b .price{font-size:1.8rem}
       .cta-b .price del{font-size:1rem}
-      .cta-b .pulse .btn{padding:14px 20px;font-size:.85rem}
+      .cta-b .pulse{display:block;margin-top:16px}
+      .cta-b .pulse .btn{padding:12px 20px}
     }
 
     /* ── PRICING ── */
@@ -446,7 +453,10 @@
     }
     .price-c .now small{font-size:1rem;color:var(--text-lt);font-weight:600}
     .price-c .inc{font-size:.85rem;color:var(--text-lt);margin-bottom:24px}
-    @media(max-width:400px){.price-c{padding:36px 20px;margin:44px -8px 0}}
+    @media(max-width:400px){
+      .price-c{padding:36px 20px;margin:44px -8px 0}
+      .price-c .btn-rose{padding:12px 20px;font-size:.78rem}
+    }
     .pf{list-style:none;text-align:left;margin-bottom:28px;display:inline-block}
     .pf li{
       padding:11px 0;border-bottom:1px solid var(--cream);
@@ -516,7 +526,8 @@
       .b-b{padding:24px 20px}
       .b-b h3{font-size:1rem}
       .b-b p{font-size:.8rem}
-      .b-cta .btn{padding:14px 28px}
+      .b-cta{text-align:center}
+      .b-cta .btn{padding:12px 22px}
     }
 
     /* ── TESTIMONIAL ── */
@@ -651,7 +662,7 @@
       .sec-final .f-ttl{font-size:1.2rem}
       .sec-final .f-price{font-size:2rem}
       .sec-final .f-price del{font-size:1.1rem}
-      .sec-final .btn-rose{padding:14px 28px;font-size:.92rem}
+      .sec-final .btn-rose{padding:12px 24px}
       .badges{gap:6px}
       .badge{padding:6px 12px;font-size:.65rem}
     }
@@ -916,7 +927,7 @@
         <li><span class="ok">✓</span>Garantia Incondicional de 7 Dias</li>
         <li><span class="ok">✓</span>Acesso Imediato em PDF</li>
       </ul>
-      <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="width:100%;justify-content:center">QUERO GARANTIR MEU ACESSO AGORA</a>
+      <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">QUERO GARANTIR MEU ACESSO AGORA</a>
       <p style="font-size:.7rem;color:var(--text-lt);margin-top:14px">Compra 100% segura • Pagamento processado em ambiente criptografado</p>
     </div>
   </div>
@@ -1013,7 +1024,7 @@
       </div>
     </div>
     <div class="b-cta">
-      <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="font-size:1rem;padding:18px 44px">QUERO GARANTIR MEUS 4 BÔNUS</a>
+      <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">QUERO GARANTIR MEUS 4 BÔNUS</a>
     </div>
   </div>
 </section>
@@ -1111,7 +1122,7 @@
     <p class="f-sub">Você está a um clique de se tornar a mãe que sempre quis ser</p>
     <div class="f-price"><del>R$ 97</del> R$ 27</div>
     <p class="f-small">Oferta por tempo limitado</p>
-    <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:18px 48px">
+    <a class="btn btn-rose" href="https://lastlink.com/p/CDF8E1316/checkout-payment/" target="_blank" rel="noopener">
       SIM! QUERO CUIDAR DO MEU BEBÊ
     </a>
     <div class="badges">
