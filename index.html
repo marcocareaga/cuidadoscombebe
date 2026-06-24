@@ -252,13 +252,19 @@
     @media(max-width:400px){
       .btn{font-size:.78rem;padding:12px 22px;max-width:100%}
       .price-c::before{right:-20px;padding:4px 36px;font-size:.5rem}
-      .sec-social .sec-title{font-size:.85rem;white-space:nowrap}
+      .sec-social .sec-title{font-size:1rem!important;white-space:nowrap}
+      .sec-topics .sec-title{font-size:1.1rem;white-space:nowrap}
+      .guar-b svg{width:100px}
+      .guar-ttl{font-size:1rem;margin-bottom:10px}
+      .guar-txt{font-size:.78rem;line-height:1.6}
+      .guar-g{gap:16px}
     }
 
     /* ── SECTION HEADERS ── */
     .sec{padding:96px 0}
     @media(max-width:768px){
       .sec{padding:56px 0}
+      .b-bg{opacity:.32;filter:blur(4px) brightness(1.1) saturate(.8)}
     }
     @media(max-width:400px){.sec{padding:44px 0}}
     .sec-tag{
@@ -443,7 +449,7 @@
       .cta-b .pulse{display:block;margin-top:16px}
       .cta-b .pulse .btn{padding:12px 20px}
       .cta-b p{font-size:.82rem}
-      .cta-b p:first-child[style*="font-weight:700"]{font-size:.82rem}
+      .cta-b p:first-child[style*="font-weight:700"]{font-size:.82rem!important;white-space:nowrap}
     }
 
     /* ── PRICING ── */
@@ -614,7 +620,7 @@
     .guar-g{
       display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:center;position:relative;z-index:1;
     }
-    @media(max-width:600px){.guar-g{grid-template-columns:1fr;text-align:center;gap:28px}}
+    @media(max-width:600px){.guar-g{grid-template-columns:1fr;text-align:center;gap:20px}}
     .guar-b{text-align:center}
     .guar-b svg{width:180px;height:auto;filter:drop-shadow(0 8px 32px rgba(13,185,130,.35))}
     .guar-ttl{
