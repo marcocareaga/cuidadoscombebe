@@ -186,21 +186,21 @@
       .hero h1{font-size:clamp(1.5rem,8vw,2.2rem);margin-bottom:12px;text-shadow:0 2px 16px rgba(0,0,0,.3)}
       .hero-sub{font-size:.92rem;margin-bottom:12px;line-height:1.65;color:rgba(255,255,255,.8);font-weight:400}
       .hero-tag{font-size:.65rem;padding:5px 14px;margin-bottom:14px}
-      .hero-cta-group .btn{width:100%;justify-content:center;padding:14px 24px;font-size:.88rem}
-      .hero-cta-group .btn-outline{width:auto}
+      .hero-cta-group{gap:10px}
+      .hero-cta-group .btn{padding:14px 24px;font-size:.88rem}
     }
     @media(max-width:400px){
       .hero h1{font-size:1.35rem;line-height:1.12}
       .hero-sub{font-size:.85rem}
-      .hero-cta-group{flex-direction:column}
-      .hero-cta-group .btn-outline{width:100%}
+      .hero-cta-group{flex-direction:column;align-items:stretch}
+      .hero-cta-group .btn{justify-content:center}
       .hero-glass .hero-stats{gap:12px;justify-content:center}
     }
 
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       font-family:var(--font);font-weight:900;font-size:.95rem;
-      letter-spacing:.04em;color:var(--white);
+      letter-spacing:.04em;color:var(--white);white-space:nowrap;
       background:linear-gradient(135deg, var(--gold), #b8862e);
       padding:16px 36px;border-radius:100px;
       box-shadow:0 8px 28px rgba(200,150,62,.3);
@@ -423,7 +423,7 @@
       .cta-b{padding:40px 16px}
       .cta-b .price{font-size:1.8rem}
       .cta-b .price del{font-size:1rem}
-      .cta-b .pulse .btn{width:100%;justify-content:center;padding:14px 20px;font-size:.85rem}
+      .cta-b .pulse .btn{padding:14px 20px;font-size:.85rem}
     }
 
     /* ── PRICING ── */
@@ -516,7 +516,7 @@
       .b-b{padding:24px 20px}
       .b-b h3{font-size:1rem}
       .b-b p{font-size:.8rem}
-      .b-cta .btn{width:100%;justify-content:center}
+      .b-cta .btn{padding:14px 28px}
     }
 
     /* ── TESTIMONIAL ── */
@@ -651,7 +651,7 @@
       .sec-final .f-ttl{font-size:1.2rem}
       .sec-final .f-price{font-size:2rem}
       .sec-final .f-price del{font-size:1.1rem}
-      .sec-final .btn-rose{width:100%;justify-content:center;padding:14px 20px;font-size:.92rem}
+      .sec-final .btn-rose{padding:14px 28px;font-size:.92rem}
       .badges{gap:6px}
       .badge{padding:6px 12px;font-size:.65rem}
     }
