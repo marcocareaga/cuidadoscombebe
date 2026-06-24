@@ -298,14 +298,14 @@
       pointer-events:none;
     }
     .s-grid{
-      display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:stretch;
+      display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:flex-start;
     }
     @media(max-width:768px){.s-grid{grid-template-columns:1fr;gap:28px}}
     @media(max-width:768px){.mockup{padding:18px}}
     .mockup{
       background:var(--navy);border-radius:var(--r);padding:28px;
       box-shadow:var(--shadow-lg);text-align:center;
-      display:flex;flex-direction:column;justify-content:center;
+      display:flex;flex-direction:column;
     }
     .mockup .img-frame-sol{
       border-radius:10px;overflow:hidden;position:relative;
