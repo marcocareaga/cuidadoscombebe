@@ -141,6 +141,15 @@
       .hero-tag-desktop{display:none}
       .hero-tag-nav{display:inline-block}
     }
+    @media(min-width:901px){
+      .hero-tag-desktop,.hero-pill{display:none}
+      .logo{font-size:1.8rem}
+      .logo-sub{font-size:.85rem}
+      .hero h1{font-size:clamp(1.4rem,4vw,2.5rem)}
+      .sec-price .sec-title{font-size:clamp(1.2rem,2.2vw,1.6rem);white-space:nowrap}
+      .faq-l{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px}
+      .faq-i{margin-bottom:0}
+    }
     .hero h1{
       font-family:var(--display);font-weight:900;
       font-size:clamp(2rem,5.5vw,3.6rem);
@@ -255,7 +264,7 @@
     .sec-sub{font-size:.95rem;color:var(--text-lt);max-width:560px;font-weight:300}
 
     /* ── VIDEO ── */
-    .sec-video{background:var(--white);padding:80px 0;text-align:center}
+    .sec-video{background:var(--white);padding:96px 0;text-align:center}
     .sec-video .container{max-width:720px}
     .video-wrap{
       border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg);
@@ -388,7 +397,7 @@
     }
 
     /* ── SOCIAL ── */
-    .sec-social{background:var(--white);padding:72px 0;text-align:center}
+    .sec-social{background:var(--white);padding:96px 0;text-align:center}
     .sec-social .sec-sub{margin:0 auto}
     .s-row{
       display:flex;justify-content:center;flex-wrap:wrap;gap:48px;margin-top:44px;
@@ -532,30 +541,8 @@
       .b-cta .btn{padding:12px 22px}
     }
 
-    /* ── TESTIMONIAL ── */
-    .sec-testi{background:var(--cream);text-align:center}
-    .testi-c{
-      max-width:600px;margin:40px auto 0;padding:36px;
-      background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);
-      position:relative;
-    }
-    .testi-c::before{
-      content:'"';font-family:var(--display);font-size:4rem;
-      color:var(--rose);position:absolute;top:8px;left:24px;
-      line-height:1;opacity:.3;
-    }
-    .testi-c blockquote{
-      font-size:1.05rem;font-style:italic;color:var(--text);
-      line-height:1.8;font-weight:300;
-    }
-    .testi-c cite{
-      display:block;margin-top:16px;font-style:normal;
-      font-weight:700;font-size:.85rem;color:var(--rose);
-    }
-    .testi-c cite span{color:var(--text-lt);font-weight:300;font-size:.8rem}
+    /* ── SOCIAL MOBILE ── */
     @media(max-width:400px){
-      .testi-c{padding:28px 20px;margin:28px -8px 0}
-      .testi-c blockquote{font-size:.92rem}
       .sec-social{padding:48px 0}
       .s-row{gap:24px}
       .s-it .num{font-size:1.4rem}
@@ -879,20 +866,6 @@
       <div class="s-it"><span class="ico">⭐</span><div class="num">4.9</div><div class="lbl">Avaliação média</div></div>
       <div class="s-it"><span class="ico">📄</span><div class="num">83</div><div class="lbl">Páginas de conteúdo</div></div>
       <div class="s-it"><span class="ico">🎁</span><div class="num">4</div><div class="lbl">Bônus exclusivos</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════ TESTIMONIAL ════════════════ -->
-<section class="sec-testi">
-  <div class="container">
-    <span class="sec-tag">Depoimento Real</span>
-    <h2 class="sec-title" style="font-size:1.3rem">O que as mamães estão dizendo</h2>
-    <div class="testi-c">
-      <blockquote>
-        Esse guia mudou completamente a minha experiência como mãe de primeira viagem. Eu estava perdida, sem dormir, achando que não ia dar conta. Com as técnicas do método, meu bebê começou a dormir a noite toda em apenas 3 dias. Recomendo de olhos fechados!
-      </blockquote>
-      <cite>Ana Carolina S. <span>• Mãe do Lucas (3 meses)</span></cite>
     </div>
   </div>
 </section>
