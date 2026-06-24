@@ -47,8 +47,24 @@
       color:var(--white);text-align:center;
       padding:10px 20px;font-size:.78rem;font-weight:700;letter-spacing:.06em;
       text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.06);
+      overflow:hidden;white-space:nowrap;
     }
     .top-bar span{color:var(--gold)}
+    .top-bar-inner{display:inline-block}
+    @media(max-width:600px){
+      .top-bar{padding:10px 0;text-align:left}
+      .top-bar-inner{
+        padding-left:20px;
+        animation:topBarScroll 12s linear infinite;
+      }
+      @keyframes topBarScroll{
+        0%{transform:translateX(0)}
+        45%{transform:translateX(0)}
+        50%{transform:translateX(calc(-100% + 100vw - 40px))}
+        95%{transform:translateX(calc(-100% + 100vw - 40px))}
+        100%{transform:translateX(0)}
+      }
+    }
 
     /* ── HERO ── */
     .hero{
@@ -161,9 +177,25 @@
     .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     @media(max-width:900px){
       .hero{min-height:auto;margin-top:42px}
-      .hero-nav{padding:16px 0 24px}
-      .hero-layout{padding:0 0 48px}
-      .hero-glass{padding:16px 18px}
+      .hero-nav{padding:12px 0 16px}
+      .hero-layout{padding:0 0 40px}
+      .hero-glass{padding:14px 16px;margin-bottom:18px}
+      .hero-glass .hero-aeo{font-size:.78rem;margin-bottom:12px;padding-bottom:12px}
+      .hero-glass .hero-stats{gap:16px}
+      .hero-glass .hero-stat .num{font-size:1rem}
+      .hero-glass .hero-stat .lbl{font-size:.55rem}
+      .hero h1{font-size:clamp(1.5rem,8vw,2.2rem);margin-bottom:12px}
+      .hero-sub{font-size:.92rem;margin-bottom:12px;line-height:1.65}
+      .hero-tag{font-size:.65rem;padding:5px 14px;margin-bottom:14px}
+      .hero-cta-group .btn{width:100%;justify-content:center;padding:14px 24px;font-size:.88rem}
+      .hero-cta-group .btn-outline{width:auto}
+    }
+    @media(max-width:400px){
+      .hero h1{font-size:1.35rem;line-height:1.12}
+      .hero-sub{font-size:.85rem}
+      .hero-cta-group{flex-direction:column}
+      .hero-cta-group .btn-outline{width:100%}
+      .hero-glass .hero-stats{gap:12px;justify-content:center}
     }
 
     .btn{
@@ -196,7 +228,8 @@
 
     /* ── SECTION HEADERS ── */
     .sec{padding:96px 0}
-    @media(max-width:768px){.sec{padding:64px 0}}
+    @media(max-width:768px){.sec{padding:56px 0}}
+    @media(max-width:400px){.sec{padding:44px 0}}
     .sec-tag{
       display:inline-block;color:var(--rose);font-size:.7rem;font-weight:800;
       letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;
@@ -228,11 +261,12 @@
     .grid-2{
       display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;
     }
-    @media(max-width:768px){.grid-2{grid-template-columns:1fr;gap:32px}}
+    @media(max-width:768px){.grid-2{grid-template-columns:1fr;gap:24px}}
     .img-frame{
       border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg);
       position:relative;height:100%;min-height:380px;
     }
+    @media(max-width:768px){.img-frame{min-height:260px;height:260px}}
     .img-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
     .pain-list{list-style:none;margin-top:24px}
@@ -262,7 +296,8 @@
     .s-grid{
       display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:stretch;
     }
-    @media(max-width:768px){.s-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){.s-grid{grid-template-columns:1fr;gap:28px}}
+    @media(max-width:768px){.mockup{padding:18px}}
     .mockup{
       background:var(--navy);border-radius:var(--r);padding:28px;
       box-shadow:var(--shadow-lg);text-align:center;
@@ -345,6 +380,15 @@
     .t-t{font-weight:800;font-size:1rem;margin-bottom:6px}
     .t-d{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6;font-weight:300}
     .t-cta{text-align:center;margin-top:40px}
+    @media(max-width:400px){
+      .sec-topics{padding:56px 0}
+      .t-grid{gap:14px;margin-top:28px}
+      .t-c{padding:18px;gap:12px}
+      .t-i{width:44px;height:44px;border-radius:12px}
+      .t-i svg{width:22px;height:22px}
+      .t-t{font-size:.88rem}
+      .t-d{font-size:.75rem}
+    }
 
     /* ── SOCIAL ── */
     .sec-social{background:var(--white);padding:72px 0;text-align:center}
@@ -372,8 +416,15 @@
     .cta-b p{color:rgba(255,255,255,.8);margin-bottom:10px;font-weight:300}
     .cta-b .small{font-size:.8rem;opacity:.5}
     .cta-b .pulse{display:inline-block;margin-top:20px}
+    .cta-b .pulse .btn{width:auto}
     .cta-rose{
       background:linear-gradient(135deg, var(--rose), #b52a5a);
+    }
+    @media(max-width:400px){
+      .cta-b{padding:40px 16px}
+      .cta-b .price{font-size:1.8rem}
+      .cta-b .price del{font-size:1rem}
+      .cta-b .pulse .btn{width:100%;justify-content:center;padding:14px 20px;font-size:.85rem}
     }
 
     /* ── PRICING ── */
@@ -396,6 +447,7 @@
     }
     .price-c .now small{font-size:1rem;color:var(--text-lt);font-weight:600}
     .price-c .inc{font-size:.85rem;color:var(--text-lt);margin-bottom:24px}
+    @media(max-width:400px){.price-c{padding:36px 20px;margin:44px -8px 0}}
     .pf{list-style:none;text-align:left;margin-bottom:28px;display:inline-block}
     .pf li{
       padding:11px 0;border-bottom:1px solid var(--cream);
@@ -457,6 +509,16 @@
     .bc-green .btag{color:#e8f5e9}
     .bc-navy .btag{color:rgba(255,255,255,.5)}
     .b-cta{text-align:center;margin-top:48px}
+    @media(max-width:400px){
+      .sec-bonus .sec{padding:56px 0}
+      .b-grid{gap:20px;margin-top:28px}
+      .b-t{padding:32px 20px 24px;min-height:160px}
+      .b-t svg{width:56px;height:56px}
+      .b-b{padding:24px 20px}
+      .b-b h3{font-size:1rem}
+      .b-b p{font-size:.8rem}
+      .b-cta .btn{width:100%;justify-content:center}
+    }
 
     /* ── TESTIMONIAL ── */
     .sec-testi{background:var(--cream);text-align:center}
@@ -479,6 +541,13 @@
       font-weight:700;font-size:.85rem;color:var(--rose);
     }
     .testi-c cite span{color:var(--text-lt);font-weight:300;font-size:.8rem}
+    @media(max-width:400px){
+      .testi-c{padding:28px 20px;margin:28px -8px 0}
+      .testi-c blockquote{font-size:.92rem}
+      .sec-social{padding:48px 0}
+      .s-row{gap:24px}
+      .s-it .num{font-size:1.4rem}
+    }
 
     /* ── CTA ROSE ── */
     .cta-rose-bg{background:linear-gradient(135deg, var(--rose), #9a2048)}
@@ -514,6 +583,11 @@
       padding:0 24px;font-size:.88rem;color:var(--text-lt);line-height:1.7;font-weight:300;
     }
     .faq-i.open .faq-a{max-height:300px;padding:0 24px 20px}
+    @media(max-width:400px){
+      .faq-ttl{font-size:1.4rem;margin-bottom:28px}
+      .faq-q{padding:16px 18px;font-size:.85rem}
+      .faq-i.open .faq-a{padding:0 18px 16px;font-size:.82rem}
+    }
 
     /* ── GUARANTEE ── */
     .sec-guar{
@@ -522,20 +596,31 @@
     }
     .sec-guar::before{
       content:'';position:absolute;inset:0;
-      background:radial-gradient(circle at 70% 50%, rgba(214,51,108,.06), transparent 50%);
+      background:radial-gradient(circle at 30% 50%, rgba(13,185,130,.06), transparent 50%);
+    }
+    .sec-guar::after{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(circle at 80% 50%, rgba(214,51,108,.04), transparent 50%);
     }
     .guar-g{
-      display:grid;grid-template-columns:180px 1fr;gap:44px;align-items:center;position:relative;z-index:1;
+      display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:center;position:relative;z-index:1;
     }
-    @media(max-width:600px){.guar-g{grid-template-columns:1fr;text-align:center}}
+    @media(max-width:600px){.guar-g{grid-template-columns:1fr;text-align:center;gap:28px}}
     .guar-b{text-align:center}
-    .guar-b svg{width:150px;height:auto;filter:drop-shadow(0 4px 16px rgba(255,213,79,.2))}
+    .guar-b svg{width:180px;height:auto;filter:drop-shadow(0 8px 32px rgba(13,185,130,.35))}
     .guar-ttl{
       font-family:var(--display);font-weight:900;font-size:1.6rem;margin-bottom:16px;
       letter-spacing:-.02em;
     }
+    .guar-ttl em{color:var(--gold);font-style:italic}
     .guar-txt{font-size:.92rem;line-height:1.9;color:rgba(255,255,255,.55);font-weight:300}
     .guar-txt strong{color:var(--white);font-weight:700}
+    @media(max-width:400px){
+      .sec-guar{padding:56px 0}
+      .guar-b svg{width:140px}
+      .guar-ttl{font-size:1.2rem}
+      .guar-txt{font-size:.85rem}
+    }
 
     /* ── FINAL ── */
     .sec-final{
@@ -562,6 +647,15 @@
       box-shadow:0 2px 8px rgba(0,0,0,.03);
     }
     .badge svg{width:16px;height:16px}
+    @media(max-width:400px){
+      .sec-final{padding:56px 0}
+      .sec-final .f-ttl{font-size:1.2rem}
+      .sec-final .f-price{font-size:2rem}
+      .sec-final .f-price del{font-size:1.1rem}
+      .sec-final .btn-rose{width:100%;justify-content:center;padding:14px 20px;font-size:.92rem}
+      .badges{gap:6px}
+      .badge{padding:6px 12px;font-size:.65rem}
+    }
 
     .footer{
       background:var(--navy);color:rgba(255,255,255,.3);text-align:center;
@@ -573,7 +667,7 @@
 </head>
 <body>
 
-<div class="top-bar">Oferta Especial por Tempo Limitado — <span>de R$ 97 por apenas R$ 27</span></div>
+<div class="top-bar"><span class="top-bar-inner">Oferta Especial por Tempo Limitado — <span>de R$ 97 por apenas R$ 27</span></span></div>
 
 <!-- ════════════════ HERO ════════════════ -->
 <header class="hero">
@@ -976,16 +1070,32 @@
     <div class="guar-g">
       <div class="guar-b">
         <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-          <path d="M80,10 L140,35 L140,80 C140,118 80,148 80,148 C80,148 20,118 20,80 L20,35 Z" fill="#ffd54f"/>
-          <path d="M80,22 L130,44 L130,80 C130,112 80,138 80,138 C80,138 30,112 30,80 L30,44 Z" fill="#f9a825"/>
-          <text x="80" y="60" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="11" fill="#fff">GARANTIA</text>
-          <text x="80" y="84" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="34" fill="#fff">7</text>
-          <text x="80" y="102" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="12" fill="#fff">DIAS</text>
-          <text x="80" y="118" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="800" font-size="8" fill="#fff3e0">SATISFAÇÃO GARANTIDA</text>
+          <defs>
+            <linearGradient id="gShield" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0db982"/>
+              <stop offset="50%" stop-color="#059669"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+            <linearGradient id="gShine" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="rgba(255,255,255,.25)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+            <filter id="fGlow">
+              <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0db982" flood-opacity=".5"/>
+            </filter>
+          </defs>
+          <path d="M80,6 L146,34 L146,84 C146,126 80,154 80,154 C80,154 14,126 14,84 L14,34 Z" fill="url(#gShield)" filter="url(#fGlow)"/>
+          <path d="M80,18 L136,46 L136,84 C136,118 80,140 80,140 C80,140 24,118 24,84 L24,46 Z" fill="url(#gShine)" opacity=".3"/>
+          <path d="M80,28 L126,52 L126,84 C126,112 80,130 80,130 C80,130 34,112 34,84 L34,52 Z" fill="rgba(255,255,255,.06)"/>
+          <path d="M60,74 L74,88 L98,64" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <text x="80" y="106" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="9" fill="#d1fae5" letter-spacing=".15em">GARANTIA</text>
+          <text x="80" y="134" text-anchor="middle" font-family="'Nunito',sans-serif" font-weight="900" font-size="8" fill="rgba(255,255,255,.4)" letter-spacing=".1em">7 DIAS</text>
+          <circle cx="130" cy="30" r="18" fill="#ffd54f" opacity=".15"/>
+          <path d="M126 26l4 4 8-8" stroke="#ffd54f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".4"/>
         </svg>
       </div>
       <div>
-        <h2 class="guar-ttl">100% segura com Garantia de 7 dias</h2>
+        <h2 class="guar-ttl">100% segura — <em>Garantia Incondicional</em> de 7 dias</h2>
         <p class="guar-txt">
           <strong>Estou convencida da qualidade excepcional do meu Guia: "Como Cuidar de Um Bebê".</strong><br><br>
           Se por qualquer motivo você não se encontrar totalmente satisfeita com o valor que este guia promete, estou preparada para devolver integralmente seu investimento, sem questionamentos. Nosso objetivo é sua satisfação e sucesso, nada menos.
