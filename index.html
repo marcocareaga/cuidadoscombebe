@@ -84,7 +84,7 @@
       display:flex;align-items:center;justify-content:space-between;
       flex-wrap:wrap;gap:12px;padding:20px 0 40px;
     }
-    .hero-nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .hero-nav-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
     .logo{
       font-family:var(--display);font-weight:900;font-size:1.4rem;
       color:var(--white);letter-spacing:-.02em;line-height:1.1;
@@ -131,10 +131,15 @@
       display:inline-block;
       background:rgba(214,51,108,.25);backdrop-filter:blur(8px);
       border:1px solid rgba(214,51,108,.4);
-      color:#fff;font-size:.65rem;font-weight:800;
-      letter-spacing:.1em;text-transform:uppercase;
-      padding:5px 14px;border-radius:100px;
+      color:#fff;font-size:.7rem;font-weight:800;
+      letter-spacing:.12em;text-transform:uppercase;
+      padding:6px 18px;border-radius:100px;margin-bottom:20px;
       text-shadow:0 1px 8px rgba(0,0,0,.15);
+    }
+    .hero-tag-nav{font-size:.65rem;padding:5px 14px;margin-bottom:0;display:none}
+    @media(max-width:900px){
+      .hero-tag-desktop{display:none}
+      .hero-tag-nav{display:inline-block}
     }
     .hero h1{
       font-family:var(--display);font-weight:900;
@@ -149,8 +154,8 @@
       background-clip:text;
     }
     .hero-sub{
-      font-size:1.05rem;color:rgba(255,255,255,.78);margin-bottom:20px;
-      font-weight:400;line-height:1.85;text-shadow:0 1px 12px rgba(0,0,0,.25);
+      font-size:1.05rem;color:rgba(255,255,255,.78);margin-bottom:16px;
+      font-weight:400;line-height:1.75;text-shadow:0 1px 12px rgba(0,0,0,.25);
     }
     .hero-glass{
       background:rgba(0,0,0,.25);backdrop-filter:blur(20px);
@@ -179,7 +184,7 @@
     @media(max-width:900px){
       .hero{min-height:auto;margin-top:42px}
       .hero-nav{padding:12px 0 16px}
-      .hero-nav-right{gap:8px}
+      .hero-nav-right{gap:6px}
       .hero-nav{gap:10px}
       .hero-layout{padding:0 0 40px}
       .hero-glass{padding:14px 16px;margin-bottom:18px;background:rgba(0,0,0,.3)}
@@ -187,9 +192,8 @@
       .hero-glass .hero-stats{gap:14px}
       .hero-glass .hero-stat .num{font-size:1rem}
       .hero-glass .hero-stat .lbl{font-size:.55rem;color:rgba(255,255,255,.6)}
-      .hero h1{font-size:clamp(1.5rem,8vw,2.2rem);margin-bottom:12px;text-shadow:0 2px 16px rgba(0,0,0,.3)}
-      .hero-sub{font-size:.88rem;margin-bottom:16px;line-height:1.75;color:rgba(255,255,255,.8);font-weight:400}
-      .hero-tag{font-size:.65rem;padding:5px 14px;margin-bottom:14px}
+      .hero h1{font-size:clamp(1.5rem,8vw,2.2rem);margin-bottom:10px;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+      .hero-sub{font-size:.88rem;margin-bottom:14px;line-height:1.6;color:rgba(255,255,255,.8);font-weight:400}
       .hero-cta-group{gap:10px}
       .hero-cta-group .btn{padding:14px 24px;font-size:.82rem}
     }
@@ -686,12 +690,13 @@
         <div class="logo-sub">Guia Completo para Mamães</div>
       </div>
       <div class="hero-nav-right">
-        <div class="hero-tag">Guia Passo a Passo</div>
+        <div class="hero-tag-nav">Guia Passo a Passo</div>
         <div class="hero-pill">✦ +2.000 mamães</div>
       </div>
     </div>
     <div class="hero-layout">
       <div class="hero-text">
+        <div class="hero-tag hero-tag-desktop">Guia Passo a Passo</div>
         <h1>O método que toda <em>mamãe de primeira viagem</em> precisa para cuidar do seu bebê com confiança</h1>
         <p class="hero-sub">Descubra o passo a passo simples que já ajudou milhares de mães a saírem da insegurança e se tornarem referência no cuidado com seus bebês — do nascimento ao primeiro ano de vida.</p>
         <div class="hero-glass">
