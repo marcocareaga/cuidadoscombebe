@@ -8,6 +8,93 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Facebook Pixel & Conversions API (CAPI) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    var FB_PIXEL_ID = '462737320266960';
+    var FB_CAPI_TOKEN = 'EABRDPamu6mABOysKZCZAcZAjL8c7ox0kV7wnBZAYxUz3VK55wDZBqEpkUZBZCJyaZBxOo6X8CeBgtbzQeCTTK2UgiqrbRX9YrIXa2behkz3kavHuTcZBierAZClOl1leJ3sJKBVkSfv1XzQeSs8uVeCy1jvjJlYGty6fEnakWeF34xGWoIunWbL0NvZAgR9KKA1UKFKsAZDZD';
+
+    fbq('init', FB_PIXEL_ID);
+
+    function getCookie(name) {
+      var value = '; ' + document.cookie;
+      var parts = value.split('; ' + name + '=');
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    function sendCAPIEvent(eventName, eventId, customData) {
+      var userData = {
+        client_user_agent: navigator.userAgent
+      };
+      var fbp = getCookie('_fbp');
+      var fbc = getCookie('_fbc');
+      if (fbp) userData.fbp = fbp;
+      if (fbc) userData.fbc = fbc;
+
+      var payload = {
+        data: [{
+          event_name: eventName,
+          event_time: Math.floor(Date.now() / 1000),
+          event_id: eventId,
+          event_source_url: window.location.href,
+          action_source: 'website',
+          user_data: userData
+        }]
+      };
+
+      if (customData) {
+        payload.data[0].custom_data = customData;
+      }
+
+      fetch('https://graph.facebook.com/v19.0/' + FB_PIXEL_ID + '/events?access_token=' + encodeURIComponent(FB_CAPI_TOKEN), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(function(err) {
+        console.error('Facebook CAPI Error:', err);
+      });
+    }
+
+    function generateEventId(prefix) {
+      return (prefix || 'evt') + '_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+    }
+
+    // PageView Event (Pixel + CAPI)
+    var pageViewEventId = generateEventId('pageview');
+    fbq('track', 'PageView', {}, { eventID: pageViewEventId });
+    sendCAPIEvent('PageView', pageViewEventId);
+
+    // InitiateCheckout Event on CTA clicks (Pixel + CAPI)
+    document.addEventListener('DOMContentLoaded', function() {
+      var checkoutButtons = document.querySelectorAll('a[href*="lastlink.com"]');
+      checkoutButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var checkoutEventId = generateEventId('checkout');
+          var customData = {
+            content_name: 'Método Como Cuidar de um Bebê',
+            currency: 'BRL',
+            value: 27.00
+          };
+          fbq('track', 'InitiateCheckout', customData, { eventID: checkoutEventId });
+          sendCAPIEvent('InitiateCheckout', checkoutEventId, customData);
+        });
+      });
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=462737320266960&ev=PageView&noscript=1" alt=""/></noscript>
+  <!-- End Facebook Pixel & Conversions API -->
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -1140,16 +1227,7 @@
   <p style="margin-top:10px"><a href="#">Contato</a> <a href="#">Política de Privacidade</a> <a href="#">Termos de Uso</a></p>
 </footer>
 
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1176095947934147');
-fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1176095947934147&ev=PageView&noscript=1" alt=""></noscript>
+
 
 <script>
 document.querySelectorAll('.faq-q').forEach(function(b){
